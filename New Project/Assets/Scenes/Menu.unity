@@ -810,7 +810,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Enter Email...
+  m_text: Enter Username...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: efac73606e72c4621b803192f6139fb8, type: 2}
   m_sharedMaterial: {fileID: 3262408352815261074, guid: efac73606e72c4621b803192f6139fb8, type: 2}
@@ -1325,8 +1325,8 @@ MonoBehaviour:
   m_VerticalScrollbarEventHandler: {fileID: 0}
   m_LayoutGroup: {fileID: 0}
   m_ScrollSensitivity: 1
-  m_ContentType: 0
-  m_InputType: 0
+  m_ContentType: 7
+  m_InputType: 2
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
@@ -2529,12 +2529,10 @@ MonoBehaviour:
   submitButton: {fileID: 1254106152}
   message: {fileID: 538119563}
   messageObject: {fileID: 535204180}
-  Email: {fileID: 2028662767}
-  Password: {fileID: 1057246698}
+  username: {fileID: 2028662769}
+  password: {fileID: 1057246700}
   registerButton: {fileID: 423826903}
   firstInput: {fileID: 2028662769}
-  transition: {fileID: 0}
-  transitionTime: 5
 --- !u!1 &1902468889
 GameObject:
   m_ObjectHideFlags: 0
@@ -2623,7 +2621,7 @@ GameObject:
   - component: {fileID: 2028662770}
   - component: {fileID: 2028662769}
   m_Layer: 5
-  m_Name: Email
+  m_Name: Username
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2697,14 +2695,14 @@ MonoBehaviour:
   m_VerticalScrollbarEventHandler: {fileID: 0}
   m_LayoutGroup: {fileID: 0}
   m_ScrollSensitivity: 1
-  m_ContentType: 0
+  m_ContentType: 6
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 7
   m_LineType: 0
   m_HideMobileInput: 0
   m_HideSoftKeyboard: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 7
   m_RegexValue: 
   m_GlobalPointSize: 13
   m_CharacterLimit: 0

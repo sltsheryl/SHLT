@@ -11,11 +11,10 @@ public class Menu : MonoBehaviour
     public Button submitButton;
     public TextMeshProUGUI message;
     public GameObject messageObject;
-    public GameObject Email;
-    public GameObject Password;
+    public TMP_InputField username;
+    public TMP_InputField password;
     public Button registerButton;
-    private string email;
-    private string password;
+
     public Selectable firstInput;
     EventSystem system;
 
@@ -65,25 +64,23 @@ public class Menu : MonoBehaviour
 
     public void Login()
     {
-       string currScreen = SceneManager.GetActiveScene().name;
-        email = Email.GetComponent<TMP_InputField>().text;
-        password = Password.GetComponent<TMP_InputField>().text;
-        if (email != "" && password != "")
+        string currScreen = SceneManager.GetActiveScene().name;
+        string usernameContent = username.text;
+        string passwordContent = password.text;
+        if (usernameContent != "" && passwordContent != "")
         {
-           
-                Debug.Log("Successful Login!");
+            Debug.Log("Successful Login!");
             SceneManager.LoadScene("Transition");
-
-
         }
         else
         {
             messageObject.gameObject.SetActive(true);
             message.SetText("Invalid Username or Password");
-           
+
         }
 
     }
+
+    
+
 }
-
-

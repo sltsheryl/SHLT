@@ -5,16 +5,17 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 using UnityEngine.SceneManagement;
+
 public class Register : MonoBehaviour
 {
     public TextMeshProUGUI message;
     public GameObject messageObject;
-    public GameObject Email;
-    public GameObject Password;
+    public TMP_InputField username;
+    public TMP_InputField email;
+    public TMP_InputField password;
     public Button registerButton;
-    private string email;
-    private string password;
     public Selectable firstInput;
+    
     EventSystem system;
 
     void Start()
@@ -58,16 +59,22 @@ public class Register : MonoBehaviour
 
     public void RegisterNow()
     {
-        string currScreen = SceneManager.GetActiveScene().name;
-        email = Email.GetComponent<TMP_InputField>().text;
-        password = Password.GetComponent<TMP_InputField>().text;
-        if (email != "" && password != "")
+        string usernameContent = username.text;
+        string emailContent = email.text;
+        string passwordContent = password.text;
+        if (emailContent != "" && passwordContent != "")
         {
+            if (passwordContent.Length < 8)
+            {
+                messageObject.gameObject.SetActive(true);
+                message.SetText("Choose a longer password!");
+            }
+            else
+            {
                 Debug.Log("Successful Registration!");
-            SceneManager.LoadScene("Menu");
-
-
-        }
+                SceneManager.LoadScene("Menu");
+            }
+        }   
 
         else
         {
@@ -77,4 +84,8 @@ public class Register : MonoBehaviour
         }
 
     }
-}
+   
+              
+   }
+
+   
