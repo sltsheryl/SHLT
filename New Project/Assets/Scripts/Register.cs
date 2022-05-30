@@ -11,9 +11,9 @@ public class Register : MonoBehaviour
     public TextMeshProUGUI message;
     public GameObject messageObject;
     public TMP_InputField username;
-    public TMP_InputField email;
     public TMP_InputField password;
     public Button registerButton;
+    public Button backButton;
     public Selectable firstInput;
     
     EventSystem system;
@@ -24,6 +24,8 @@ public class Register : MonoBehaviour
         system = EventSystem.current;
         firstInput.Select();
         registerButton.GetComponent<Button>().onClick.AddListener(() => RegisterNow());
+        backButton.GetComponent<Button>().onClick.AddListener(() => SceneManager.LoadScene("Menu"));
+
 
     }
 
@@ -60,9 +62,8 @@ public class Register : MonoBehaviour
     public void RegisterNow()
     {
         string usernameContent = username.text;
-        string emailContent = email.text;
         string passwordContent = password.text;
-        if (emailContent != "" && passwordContent != "")
+        if (usernameContent != "" && passwordContent != "")
         {
             if (passwordContent.Length < 8)
             {

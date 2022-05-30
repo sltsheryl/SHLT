@@ -14,6 +14,7 @@ public class Menu : MonoBehaviour
     public TMP_InputField username;
     public TMP_InputField password;
     public Button registerButton;
+    public Button forgotPasswordButton;
 
     public Selectable firstInput;
     EventSystem system;
