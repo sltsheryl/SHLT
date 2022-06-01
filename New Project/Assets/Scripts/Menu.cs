@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 using UnityEngine.SceneManagement;
+using SQLClient;
 
 public class Menu : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class Menu : MonoBehaviour
 
     public Selectable firstInput;
     EventSystem system;
+    Manager manager = new Manager();
 
     // Start is called before the first frame update
     void Start()
@@ -70,13 +72,35 @@ public class Menu : MonoBehaviour
         string passwordContent = password.text;
         if (usernameContent != "" && passwordContent != "")
         {
-            Debug.Log("Successful Login!");
-            SceneManager.LoadScene("Transition");
+            User user = new User(usernameContent, passwordContent);
+            int userFound = manager.GetUser(user);
+
+            if (userFound == 0)
+            {
+                Debug.Log("Successful Login!");
+                SceneManager.LoadScene("Transition");
+            }
+            else if (userFound == 1)
+            {
+                messageObject.gameObject.SetActive(true);
+                message.SetText("User not found!");
+            }
+            else if (userFound == 2)
+            {
+                messageObject.gameObject.SetActive(true);
+                message.SetText("Wrong password!");
+            }
+            else
+            {
+                messageObject.gameObject.SetActive(true);
+                message.SetText("Error!");
+            }
+
         }
         else
         {
             messageObject.gameObject.SetActive(true);
-            message.SetText("Invalid Username or Password");
+            message.SetText("Cannot leave blank!");
 
         }
 

@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 using UnityEngine.SceneManagement;
+using SQLClient;
+
 
 public class Register : MonoBehaviour
 {
@@ -17,6 +19,8 @@ public class Register : MonoBehaviour
     public Selectable firstInput;
     
     EventSystem system;
+
+    Manager manager = new Manager();
 
     void Start()
     {
@@ -72,8 +76,20 @@ public class Register : MonoBehaviour
             }
             else
             {
-                Debug.Log("Successful Registration!");
-                SceneManager.LoadScene("Menu");
+                User user = new User(usernameContent, passwordContent);
+                bool userCreated = manager.CreateUser(user);
+                
+                if (userCreated)
+                {
+                    Debug.Log("Successful Registration!");
+                    SceneManager.LoadScene("Menu");
+                }
+                else
+                {
+                    messageObject.gameObject.SetActive(true);
+                    message.SetText("Invalid Username or Password");
+                }
+                
             }
         }   
 

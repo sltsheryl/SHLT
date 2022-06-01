@@ -23,29 +23,36 @@ class Database {
             );
         `);
     }
-	
+
     async checkUser(username, pwd) {
-		const hash = crypto.createHash('sha256').update(pwd).digest('hex');
-        return new Promise(async (resolve, reject) => {
+        const hash = crypto.createHash('sha256').update(pwd).digest('hex');
+        return new Promise(async(resolve, reject) => {
             try {
                 let stmt = await this.db.prepare('SELECT hash FROM users WHERE username = ?');
+
                 stmt.get(username)
-					.then(rows => rows.hash == hash 
-								  ? resolve()
-								  : reject("Wrong password"));  // TODO
-            } catch(e) {
+                    .then(rows => {
+                        if (rows == undefined) {
+                            reject("Invalid user");
+                        } else if (rows.hash == hash) {
+                            resolve();
+                        } else {
+                            reject("Wrong password");
+                        }
+                    })
+            } catch (e) {
                 reject(e);
             }
         });
     }
 
     async addUser(username, pwd) {
-		const hash = crypto.createHash('sha256').update(pwd).digest('hex');
-        return new Promise(async (resolve, reject) => {
+        const hash = crypto.createHash('sha256').update(pwd).digest('hex');
+        return new Promise(async(resolve, reject) => {
             try {
-                let stmt = await this.db.prepare('INSERT INTO users (username, hash) VALUES( ?, ? )');  // TODO: use something unique
-                resolve(await stmt.run(username, hash));
-            } catch(e) {
+                let stmt = await this.db.prepare('INSERT INTO users (username, hash) VALUES( ?, ? )'); // TODO: use something unique
+                resolve(stmt.run(username, hash));
+            } catch (e) {
                 reject(e);
             }
         });

@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Forgot Password? Click here
+  m_text: Forgot Password
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3f2cd0665b6d14e20a4c98a4eaa4bbfe, type: 2}
   m_sharedMaterial: {fileID: -5750669565057906641, guid: 3f2cd0665b6d14e20a4c98a4eaa4bbfe, type: 2}
