@@ -4104,6 +4104,44 @@ LightingSettings:
   m_PVRFilteringAtrousPositionSigmaDirect: 0.5
   m_PVRFilteringAtrousPositionSigmaIndirect: 2
   m_PVRFilteringAtrousPositionSigmaAO: 1
+--- !u!1 &1259226492 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b013955c466a69e4497c856e1f23a277, type: 3}
+  m_PrefabInstance: {fileID: 671044185}
+  m_PrefabAsset: {fileID: 0}
+--- !u!143 &1259226493
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259226492}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 1
+  m_Radius: 0.9
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1259226494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259226492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11d4f9588917942708111ce1c1c28f34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 1259226493}
+  speed: 3
+  gravity: -9.8
 --- !u!1001 &1263822332
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5400,6 +5438,7 @@ GameObject:
   - component: {fileID: 1644183815}
   - component: {fileID: 1644183818}
   - component: {fileID: 1644183817}
+  - component: {fileID: 1644183816}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -5415,12 +5454,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1644183814}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.9755416, z: 0}
+  m_LocalPosition: {x: 0, y: 3.2, z: 0.388}
   m_LocalScale: {x: 1.9836942, y: 1.9836942, z: 1.9836942}
   m_Children: []
   m_Father: {fileID: 671044186}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1644183816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644183814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebc24bc079a764f00aa46428a31d7213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseSensitivity: 500
+  playerBody: {fileID: 671044186}
 --- !u!81 &1644183817
 AudioListener:
   m_ObjectHideFlags: 0
