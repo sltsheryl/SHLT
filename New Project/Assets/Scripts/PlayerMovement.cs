@@ -8,29 +8,31 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 12f;
     public float gravity = -9.8f;
     private Vector3 velocity;
-    private float charHeight;
-    private Transform thisTransform;
-    public GameObject go;
-    float distanceTraveled = 0f;
+
+    //private float charHeight;
+    //private Transform thisTransform;
+    //public GameObject go;
+    //float distanceTraveled = 0f;
 
     private void Start()
     {
-        charHeight = controller.height;
-        thisTransform = transform;
+        //charHeight = controller.height;
+        //thisTransform = transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float h = charHeight;
+        // float h = charHeight;
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
         Vector3 move = transform.right * x + transform.forward * z;
         controller.Move(move * speed * Time.deltaTime);
 
-        velocity.y = gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
+        velocity.y += gravity * Time.deltaTime;
+        controller.Move(velocity * Time.deltaTime * Time.deltaTime);
 
+        /*
         if (Input.GetKey("c"))
         {
             h = charHeight / 10;
@@ -66,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
+        */
     }
 }
 
