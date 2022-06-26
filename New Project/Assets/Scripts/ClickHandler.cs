@@ -16,6 +16,7 @@ public class ClickHandler : MonoBehaviour
         //    RaycastHit hit;
         //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
+<<<<<<< Updated upstream
         //    if (Physics.Raycast(ray, out hit, maxDistance))
         //    {
         //        if (hit.transform != null)
@@ -28,6 +29,29 @@ public class ClickHandler : MonoBehaviour
         //        }
         //    }
         //}
+=======
+            if (Physics.Raycast(ray, out hit, maxDistance))
+            {
+                if (hit.transform != null)
+                {
+                    string target = hit.transform.gameObject.name;
+                    PrintName(hit.transform.gameObject);
+
+                    //if (target == "wallA" || target == "wallB" || target == "wallC")
+                    //{
+                    //    Debug.Log("Play");
+                    //    if (distanceTraveled < 100000f)
+                    //    {
+                    //        Vector3 oldPosition = go.transform.position;
+                    //        go.transform.Translate(0, 0, 10 * Time.deltaTime);
+                    //        distanceTraveled += Vector3.Distance(oldPosition, go.transform.position);
+                    //    }
+                    //}
+
+                }
+            }
+        }
+>>>>>>> Stashed changes
     }
 
     private void PrintName(GameObject go)
