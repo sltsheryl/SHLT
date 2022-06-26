@@ -5,9 +5,9 @@ using System;
 
 public class Clock : MonoBehaviour
 {
-    public GameObject hourHand;
-    public GameObject minuteHand;
-    public GameObject secondHand;
+    [SerializeField] private GameObject hourHand;
+    [SerializeField] private GameObject minuteHand;
+    [SerializeField] private GameObject secondHand;
 
     void Start()
     {

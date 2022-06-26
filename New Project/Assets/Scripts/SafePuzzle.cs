@@ -9,14 +9,12 @@ using UnityEngine.SceneManagement;
 public class SafePuzzle : MonoBehaviour
 {
 
-    public string correctPassword = "123";
+    private string correctPassword = "123";
     private string input;
-    public GameObject knob;
-    //public AudioSource audioData;
+    [SerializeField] private GameObject knob;
     float rotationAmount = 0.5f;
     float delaySpeed = 0.05f;
   
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -99,7 +97,7 @@ public class SafePuzzle : MonoBehaviour
 
     void goBack()
     {
-        Debug.Log("Lol");
+        Debug.Log("Back");
         SceneManager.LoadScene("RoomOne");
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneTransition : MonoBehaviour
 {
-    public GameObject go;
+    [SerializeField] private GameObject go;
 
     void Update()
     {

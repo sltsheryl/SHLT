@@ -10,13 +10,13 @@ using SQLClient;
 
 public class Register : MonoBehaviour
 {
-    public TextMeshProUGUI message;
-    public GameObject messageObject;
-    public TMP_InputField username;
-    public TMP_InputField password;
-    public Button registerButton;
-    public Button backButton;
-    public Selectable firstInput;
+    [SerializeField] private TextMeshProUGUI message;
+    [SerializeField] private GameObject messageObject;
+    [SerializeField] private TMP_InputField username;
+    [SerializeField] private TMP_InputField password;
+    [SerializeField] private Button registerButton;
+    [SerializeField] private Button backButton;
+    [SerializeField] private Selectable firstInput;
     private FieldSequence fieldSequence;
     private EventSystem system;
     private Manager manager = new Manager();

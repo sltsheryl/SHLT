@@ -9,14 +9,14 @@ using SQLClient;
 
 public class Menu : MonoBehaviour
 {
-    public Button submitButton;
-    public TextMeshProUGUI message;
-    public GameObject messageObject;
-    public TMP_InputField username;
-    public TMP_InputField password;
-    public Button registerButton;
-    public Button forgotPasswordButton;
-    public Selectable firstInput;
+    [SerializeField] private Button submitButton;
+    [SerializeField] private TextMeshProUGUI message;
+    [SerializeField] private GameObject messageObject;
+    [SerializeField] private TMP_InputField username;
+    [SerializeField] private TMP_InputField password;
+    [SerializeField] private Button registerButton;
+    [SerializeField] private Button forgotPasswordButton;
+    [SerializeField] private Selectable firstInput;
     private FieldSequence fieldSequence;
     private EventSystem system;
     private Manager manager = new Manager();

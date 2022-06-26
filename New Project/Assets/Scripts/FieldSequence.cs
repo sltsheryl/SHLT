@@ -7,11 +7,11 @@ using TMPro;
 
 public class FieldSequence : MonoBehaviour
 {
-    public GameObject messageObject;
-    public TextMeshProUGUI message;
+    [SerializeField] private GameObject messageObject;
+    [SerializeField] private TextMeshProUGUI message;
     private EventSystem system;
-    public TMP_InputField username;
-    public TMP_InputField password;
+    [SerializeField] private TMP_InputField username;
+    [SerializeField] private TMP_InputField password;
 
     public void fieldOrder()
     {
