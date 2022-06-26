@@ -9,7 +9,6 @@ public class SceneTransition : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(go.transform.localScale.x);
         if (go.transform.localScale.x >= 7.5326)
         {
             SceneManager.LoadScene("RoomOne");
