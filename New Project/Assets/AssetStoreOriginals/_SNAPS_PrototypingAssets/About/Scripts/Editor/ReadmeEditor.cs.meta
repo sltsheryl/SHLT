@@ -1,7 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:New Project/Assets/AssetStoreOriginals/_SNAPS_PrototypingAssets/About/Scripts/Editor/ReadmeEditor.cs.meta
 guid: 476cc7d7cd9874016adc216baab94a0a
 timeCreated: 1484146680
 licenseType: Store
+========
+guid: 0fb655a9d08744fb3a9aa5d690e3c96c
+>>>>>>>> e5a8a0ceb8ba379711d9c0008b8c3527678eaa3e:New Project/Assets/Scripts/Clock.cs.meta
 MonoImporter:
   serializedVersion: 2
   defaultReferences: []
