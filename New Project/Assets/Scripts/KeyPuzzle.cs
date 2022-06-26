@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class KeyPuzzle : Interactable
 {
+    [SerializeField] private CanvasGroup puzzleScreen;
+
     private Outline outline;
 
     private void Start()
@@ -22,10 +24,12 @@ public class KeyPuzzle : Interactable
     public override void OnInteract()
     {
         Debug.Log("Key clicked!");
+        puzzleScreen.alpha = 0.85f;
     }
 
     public override void OnLoseFocus()
     {
         outline.enabled = false;
+        puzzleScreen.alpha = 0f;
     }
 }
