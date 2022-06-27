@@ -537,7 +537,7 @@ GameObject:
   - component: {fileID: 454409006038839036}
   - component: {fileID: 454409006038839011}
   - component: {fileID: 454409006038839010}
-  - component: {fileID: 454409006038839009}
+  - component: {fileID: 8145656505712516943}
   m_Layer: 0
   m_Name: Clock
   m_TagString: Untagged
@@ -622,7 +622,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &454409006038839009
+--- !u!114 &8145656505712516943
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -631,7 +631,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 454409006038839008}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fb655a9d08744fb3a9aa5d690e3c96c, type: 3}
+  m_Script: {fileID: 11500000, guid: 765e2395590fa46af89339584466de87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hourHand: {fileID: 454409005464959710}

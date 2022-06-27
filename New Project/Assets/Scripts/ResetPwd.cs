@@ -1,20 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
 using TMPro;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using SQLClient;
 
-
-public class Register : MonoBehaviour
+public class ResetPwd : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI message;
     [SerializeField] private GameObject messageObject;
     [SerializeField] private TMP_InputField username;
     [SerializeField] private TMP_InputField password;
-    [SerializeField] private Button registerButton;
+    [SerializeField] private TMP_InputField confirmPassword;
+    [SerializeField] private Button reset;
     [SerializeField] private Button backButton;
     [SerializeField] private Selectable firstInput;
     private FieldSequence fieldSequence;
@@ -27,7 +27,7 @@ public class Register : MonoBehaviour
         messageObject.gameObject.SetActive(false);
         system = EventSystem.current;
         firstInput.Select();
-        registerButton.GetComponent<Button>().onClick.AddListener(() => RegisterNow());
+        reset.GetComponent<Button>().onClick.AddListener(() => Reset());
         backButton.GetComponent<Button>().onClick.AddListener(() => SceneManager.LoadScene("Menu"));
     }
 
@@ -36,15 +36,16 @@ public class Register : MonoBehaviour
         fieldSequence.fieldOrder();
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            RegisterNow();
+            Reset();
         }
     }
 
-    public void RegisterNow()
+    public void Reset()
     {
         Debug.Log(username);
         string usernameContent = username.text;
         string passwordContent = password.text;
+        string password2Content = confirmPassword.text;
         if (usernameContent != "" && passwordContent != "")
         {
             if (passwordContent.Length < 8)
@@ -52,20 +53,25 @@ public class Register : MonoBehaviour
                 messageObject.gameObject.SetActive(true);
                 message.SetText("Choose a longer password!");
             }
+            if (!password2Content.Equals(passwordContent))
+            {
+                messageObject.gameObject.SetActive(true);
+                message.SetText("Inconsistent password!");
+            }
             else
             {
                 User user = new User(usernameContent, passwordContent);
-                bool userCreated = manager.CreateUser(user);
+                bool userModified = manager.ModifyUser(user);
 
-                if (userCreated)
+                if (userModified)
                 {
-                    Debug.Log("Successful Registration!");
+                    Debug.Log("Successful Change!");
                     SceneManager.LoadScene("Menu");
                 }
                 else
                 {
                     messageObject.gameObject.SetActive(true);
-                    message.SetText("Invalid Username or Password");
+                    message.SetText("User not found");
                 }
 
             }
@@ -79,6 +85,9 @@ public class Register : MonoBehaviour
         }
 
     }
+
+
 }
+
 
 

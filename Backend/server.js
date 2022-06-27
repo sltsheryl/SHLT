@@ -41,6 +41,21 @@ app.post('/api/register', async(req, res) => {
         });
 });
 
+app.post('/api/resetpassword', async(req, res) => {
+    const { username, pwd } = req.body;
+    return db.modifyUser(username, pwd)
+        .then(() => res.send('User modified successfully!'))
+        .catch(e => {
+            console.log(e);
+            if (e == "No such user") {
+                return res.status(500).send('Invalid user');
+            } else {
+
+                return res.status(500).send(response('Something went wrong!'));
+            }
+        });
+});
+
 (async() => {
     await db.connect();
     await db.migrate(); // just for testing

@@ -10,8 +10,6 @@ public class FieldSequence : MonoBehaviour
     [SerializeField] private GameObject messageObject;
     [SerializeField] private TextMeshProUGUI message;
     private EventSystem system;
-    [SerializeField] private TMP_InputField username;
-    [SerializeField] private TMP_InputField password;
 
     public void fieldOrder()
     {

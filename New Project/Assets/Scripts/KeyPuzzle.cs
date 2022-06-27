@@ -24,6 +24,7 @@ public class KeyPuzzle : Interactable
     public override void OnInteract()
     {
         Debug.Log("Key clicked!");
+        puzzleScreen.gameObject.SetActive(true);
         puzzleScreen.alpha = 0.85f;
     }
 

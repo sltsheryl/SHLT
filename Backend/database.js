@@ -1,5 +1,6 @@
 const sqlite = require('sqlite-async');
 const crypto = require('crypto');
+const e = require('express');
 
 class Database {
     constructor(db_file) {
@@ -29,7 +30,6 @@ class Database {
         return new Promise(async(resolve, reject) => {
             try {
                 let stmt = await this.db.prepare('SELECT hash FROM users WHERE username = ?');
-
                 stmt.get(username)
                     .then(rows => {
                         if (rows == undefined) {
@@ -50,8 +50,27 @@ class Database {
         const hash = crypto.createHash('sha256').update(pwd).digest('hex');
         return new Promise(async(resolve, reject) => {
             try {
-                let stmt = await this.db.prepare('INSERT INTO users (username, hash) VALUES( ?, ? )'); // TODO: use something unique
+                let stmt = await this.db.prepare('INSERT INTO users (username, hash) VALUES( ?, ? )');
                 resolve(stmt.run(username, hash));
+            } catch (e) {
+                reject(e);
+            }
+        });
+    }
+
+    async modifyUser(username, pwd) {
+        const hash = crypto.createHash('sha256').update(pwd).digest('hex');
+        return new Promise(async(resolve, reject) => {
+            try {
+                let stmt = await this.db.prepare('SELECT hash FROM users WHERE username = ?');
+                stmt.get(username).then(rows => {
+                    if (rows == undefined) {
+                        reject("Invalid user");
+                    } else {
+                        this.db.prepare('UPDATE users SET hash = ? WHERE username = ?');
+                        (pwd, username);
+                    }
+                });
             } catch (e) {
                 reject(e);
             }

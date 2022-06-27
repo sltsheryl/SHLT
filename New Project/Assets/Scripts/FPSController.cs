@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class FPSController : MonoBehaviour
 {
-    public bool CanMove { get; private set; } = true;
+    public static bool CanMove = true;
+    //public static bool CanMove { get; private set; } = true;
     private bool isSprinting => canSprint && Input.GetKey(sprintKey);
     private bool shouldJump => Input.GetKey(jumpKey) && characterController.isGrounded;
     private bool shouldCrouch => Input.GetKeyDown(crouchKey) && !duringCrouchAnimation && characterController.isGrounded;
@@ -64,8 +65,8 @@ public class FPSController : MonoBehaviour
     {
         playerCamera = GetComponentInChildren<Camera>();
         characterController = GetComponent<CharacterController>();
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        Cursor.visible = true;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -158,6 +159,7 @@ public class FPSController : MonoBehaviour
             currentInteractable = null;
         }
     }
+
 
     private void HandleInteractionInput()
     {

@@ -51,7 +51,22 @@ namespace SQLClient
                 return false;
             }
         }
-    
 
+        // modify user
+        public bool ModifyUser(User user)
+        {
+            var formContent = new StringContent(user.ToJSON(), Encoding.UTF8, "application/json");
+            HttpResponseMessage response = client.PostAsync(baseUrl + "/api/resetpassword", formContent).GetAwaiter().GetResult();
+            string responseStr = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+            Debug.Log(responseStr);
+            if (responseStr == "User modified successfully!")
+            {
+                return true;
+            }
+            else 
+            {
+                return false;
+            }
+        }
     }
 }

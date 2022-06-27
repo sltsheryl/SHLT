@@ -6,98 +6,65 @@ using UnityEngine.EventSystems;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class SafePuzzle : MonoBehaviour
-{
 
+public class SafePuzzle : Safe
+{
     private string correctPassword = "123";
     private string input;
-    [SerializeField] private GameObject knob;
-    float rotationAmount = 0.5f;
-    float delaySpeed = 0.05f;
-  
-    void Update()
+    [SerializeField] private TextMeshProUGUI result;
+    [Header("buttons")]
+    [SerializeField] private Button one;
+    [SerializeField] private Button two;
+    [SerializeField] private Button three;
+    [SerializeField] private Button four;
+    [SerializeField] private Button five;
+    [SerializeField] private Button six;
+    [SerializeField] private Button seven;
+    [SerializeField] private Button eight;
+    [SerializeField] private Button nine;
+    [SerializeField] private Button Reset;
+    [SerializeField] private Button Enter;
+
+    private void Start()
     {
-        if (Input.GetMouseButtonDown(0))
+        one.onClick.AddListener(() => input += "1");
+        two.onClick.AddListener(() => input += "2");
+        three.onClick.AddListener(() => input += "3");
+        four.onClick.AddListener(() => input += "4");
+        five.onClick.AddListener(() => input += "5");
+        six.onClick.AddListener(() => input += "6");
+        seven.onClick.AddListener(() => input += "7");
+        eight.onClick.AddListener(() => input += "8");
+        nine.onClick.AddListener(() => input += "9");
+        Reset.onClick.AddListener(() => input = "");
+        Enter.onClick.AddListener(() =>
         {
-            string[] nums = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit, 100.0f))
+            if (input.Equals(correctPassword))
             {
-                if (hit.transform)
-                {
-                    print(hit.transform.gameObject.name);
-                    string target = hit.transform.gameObject.name;
-                    //if enter
-                    if (target == "Enter")
-                    {
-                        if (input.Equals(correctPassword))
-                        {
-                            StartCoroutine(openSafe());
-                        }
-                        else
-                        {
-                            wrongPassword();
-                        }
-                    }
-
-                    //if reset
-                    if (target == "Reset")
-                    {
-                        input = "";
-                    }
-
-                    //if number
-                    bool present = false;
-                    for (int i = 0; i < nums.Length; i++)
-                    {
-                        if (nums[i] == target)
-                        {
-                            present = present || true;
-                        }
-                    }
-                    if (present)
-                    {
-                        input += target;
-                    }
-
-                    if (target == "Back")
-                    {
-                        goBack();
-                    }
-                }
+                open();
+            }
+            else
+            {
+                wrongPassword();
             }
         }
+        );
     }
-
-    //void openSafe()
-    //{
-    //    Vector3 direction = new Vector3(0, 90, 0);
-    //    Quaternion targetRotation = Quaternion.Euler(direction);
-    //    transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, Time.deltaTime * 20f);
-    //    //float speed = 10F;
-    //    //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 90, 0), Time.deltaTime * speed);
-    //    //knob.transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, 270), Time.deltaTime * speed);
-    //}
-    IEnumerator openSafe()
-    {
-        float count = 0;
-        while (count <= 90)
-        {
-            gameObject.transform.Rotate(new Vector3(0, rotationAmount, 0));
-            count += rotationAmount;
-            yield return new WaitForSeconds(delaySpeed);
-        }
+   
+ 
+private void open()
+{
+    result.text = "Correct";
+    result.color = Color.green;
+        openSafe();
     }
-    void wrongPassword()
+    private void wrongPassword()
     {
         Debug.Log("Wrong pin!");
+        result.text = "Incorrect";
+        result.color = Color.red;
         input = "";
     }
 
-    void goBack()
-    {
-        Debug.Log("Back");
-        SceneManager.LoadScene("RoomOne");
-    }
+
 }

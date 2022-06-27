@@ -29,6 +29,7 @@ public class Menu : MonoBehaviour
         firstInput.Select();
         submitButton.GetComponent<Button>().onClick.AddListener(() => Login());
         registerButton.GetComponent<Button>().onClick.AddListener(() => SceneManager.LoadScene("RegisterPage"));
+        forgotPasswordButton.GetComponent<Button>().onClick.AddListener(() => SceneManager.LoadScene("ResetPassword"));
     }
 
     public void Update()
