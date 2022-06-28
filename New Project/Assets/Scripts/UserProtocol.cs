@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 namespace SQLClient
 {
-
         public class User
         {
             public string username;

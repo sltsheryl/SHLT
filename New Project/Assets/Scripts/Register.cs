@@ -10,61 +10,39 @@ using SQLClient;
 
 public class Register : MonoBehaviour
 {
-    public TextMeshProUGUI message;
-    public GameObject messageObject;
-    public TMP_InputField username;
-    public TMP_InputField password;
-    public Button registerButton;
-    public Button backButton;
-    public Selectable firstInput;
-    
-    EventSystem system;
+    [SerializeField] private TextMeshProUGUI message;
+    [SerializeField] private GameObject messageObject;
+    [SerializeField] private TMP_InputField username;
+    [SerializeField] private TMP_InputField password;
+    [SerializeField] private Button registerButton;
+    [SerializeField] private Button backButton;
+    [SerializeField] private Selectable firstInput;
+    private FieldSequence fieldSequence;
+    private EventSystem system;
+    private Manager manager = new Manager();
 
-    Manager manager = new Manager();
-
-    void Start()
+    public void Start()
     {
+        fieldSequence = new FieldSequence();
         messageObject.gameObject.SetActive(false);
         system = EventSystem.current;
         firstInput.Select();
         registerButton.GetComponent<Button>().onClick.AddListener(() => RegisterNow());
         backButton.GetComponent<Button>().onClick.AddListener(() => SceneManager.LoadScene("Menu"));
-
-
     }
 
-    void Update()
+    public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab) && Input.GetKey(KeyCode.LeftShift) || (Input.GetKeyDown(KeyCode.UpArrow)))
+        fieldSequence.fieldOrder();
+        if (Input.GetKeyDown(KeyCode.Return))
         {
-            Selectable previous = system.currentSelectedGameObject.GetComponent<Selectable>().FindSelectableOnUp();
-            if (previous != null)
-            {
-                previous.Select();
-            }
-        }
-
-        else if (Input.GetKeyDown(KeyCode.Tab) || (Input.GetKeyDown(KeyCode.DownArrow)))
-        {
-            Selectable next = system.currentSelectedGameObject.GetComponent<Selectable>().FindSelectableOnDown();
-            if (next != null)
-            {
-                next.Select();
-            }
-        }
-
-        else if (Input.GetKeyDown(KeyCode.Return))
-        {
-            messageObject.gameObject.SetActive(false);
-            message.SetText("");
             RegisterNow();
         }
-
-
     }
 
     public void RegisterNow()
     {
+        Debug.Log(username);
         string usernameContent = username.text;
         string passwordContent = password.text;
         if (usernameContent != "" && passwordContent != "")
@@ -78,7 +56,7 @@ public class Register : MonoBehaviour
             {
                 User user = new User(usernameContent, passwordContent);
                 bool userCreated = manager.CreateUser(user);
-                
+
                 if (userCreated)
                 {
                     Debug.Log("Successful Registration!");
@@ -89,9 +67,9 @@ public class Register : MonoBehaviour
                     messageObject.gameObject.SetActive(true);
                     message.SetText("Invalid Username or Password");
                 }
-                
+
             }
-        }   
+        }
 
         else
         {
@@ -101,8 +79,6 @@ public class Register : MonoBehaviour
         }
 
     }
-   
-              
-   }
+}
 
-   
+
