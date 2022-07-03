@@ -24,11 +24,13 @@ public class Safe : Interactable
     {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                FPSController.CanMove = true;
-            }
-      
-        
-        
+            puzzleScreen.alpha = 0f;
+            puzzleScreen.gameObject.SetActive(false);
+            FPSController.CanMove = true;
+
+        }
+
+
     }
     public override void OnFocus()
     {

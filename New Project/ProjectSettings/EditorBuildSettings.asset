@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RoomOne.unity
     guid: e15e9f77bd9c94b42ba296355be99aac
+  - enabled: 1
+    path: Assets/Scenes/ResetPassword.unity
+    guid: 288ffb0b4a49d4d91a2fc1c7c6d92c17
   m_configObjects: {}

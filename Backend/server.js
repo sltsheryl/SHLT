@@ -18,7 +18,10 @@ app.post('/api/login', async(req, res) => {
     const { username, pwd } = req.body;
 
     return db.checkUser(username, pwd)
-        .then(() => res.send('Logged in successfully!'))
+        .then(() => {
+            console.log("Successful login")
+            res.send('Logged in successfully!')
+        })
         .catch(e => {
             console.log(e);
             if (e == "Invalid user") {
@@ -34,24 +37,29 @@ app.post('/api/register', async(req, res) => {
     const { username, pwd } = req.body;
 
     return db.addUser(username, pwd)
-        .then(() => res.send('User created successfully!'))
+        .then(() => {
+            console.log("Success registration");
+            res.send('User created successfully!')
+        })
         .catch(e => {
             console.log(e);
-            return res.status(500).send(response('Something went wrong!'));
+            return res.status(500).send('Something went wrong!');
         });
 });
 
 app.post('/api/resetpassword', async(req, res) => {
     const { username, pwd } = req.body;
     return db.modifyUser(username, pwd)
-        .then(() => res.send('User modified successfully!'))
+        .then(() => {
+            console.log("Success reset")
+            res.send('User modified successfully!')
+        })
         .catch(e => {
             console.log(e);
-            if (e == "No such user") {
+            if (e == "Invalid user") {
                 return res.status(500).send('Invalid user');
             } else {
-
-                return res.status(500).send(response('Something went wrong!'));
+                return res.status(500).send('Something went wrong!');
             }
         });
 });

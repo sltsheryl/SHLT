@@ -22,6 +22,7 @@ public class SafePuzzle : Safe
     [SerializeField] private Button seven;
     [SerializeField] private Button eight;
     [SerializeField] private Button nine;
+    [SerializeField] private Button zero;
     [SerializeField] private Button Reset;
     [SerializeField] private Button Enter;
 
@@ -46,6 +47,7 @@ public class SafePuzzle : Safe
             else
             {
                 wrongPassword();
+                Invoke("eraseMessage", 2f); 
             }
         }
         );
@@ -61,9 +63,13 @@ private void open()
     private void wrongPassword()
     {
         Debug.Log("Wrong pin!");
+        input = "";
         result.text = "Incorrect";
         result.color = Color.red;
-        input = "";
+    }
+    private void eraseMessage()
+    {
+        result.text = "";
     }
 
 

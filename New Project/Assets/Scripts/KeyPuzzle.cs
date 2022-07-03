@@ -33,4 +33,15 @@ public class KeyPuzzle : Interactable
         outline.enabled = false;
         puzzleScreen.alpha = 0f;
     }
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            puzzleScreen.alpha = 0f;
+            puzzleScreen.gameObject.SetActive(false);
+            FPSController.CanMove = true;
+
+        }
+    }
 }

@@ -18,7 +18,7 @@ class Database {
 
             CREATE TABLE users (
                 id           INTEGER      NOT NULL PRIMARY KEY AUTOINCREMENT,
-				username     VARCHAR(255) NOT NULL,
+				username     VARCHAR(255) NOT NULL UNIQUE,
                 hash         VARCHAR(255) NOT NULL,
 				salt         VARCHAR(255)
             );
@@ -62,17 +62,11 @@ class Database {
         const hash = crypto.createHash('sha256').update(pwd).digest('hex');
         return new Promise(async(resolve, reject) => {
             try {
-                let stmt = await this.db.prepare('SELECT hash FROM users WHERE username = ?');
-                stmt.get(username).then(rows => {
-                    if (rows == undefined) {
-                        reject("Invalid user");
-                    } else {
-                        this.db.prepare('UPDATE users SET hash = ? WHERE username = ?');
-                        (pwd, username);
-                    }
-                });
+                const newHash = crypto.createHash('sha256').update(pwd).digest('hex');
+                let stmt = await this.db.prepare('UPDATE users SET hash = ? WHERE username = ?');
+                resolve(stmt.run(newHash, username));
             } catch (e) {
-                reject(e);
+                reject(e)
             }
         });
     }
