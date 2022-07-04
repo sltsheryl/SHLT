@@ -53,6 +53,8 @@ public class FPSController : MonoBehaviour
     [SerializeField] private LayerMask interactionLayer = default;
     private Interactable currentInteractable;
 
+    public static Switch lightSwitch = new Switch();
+
     private Camera playerCamera;
     private CharacterController characterController;
 

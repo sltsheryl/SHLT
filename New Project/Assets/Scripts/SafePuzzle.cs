@@ -12,33 +12,10 @@ public class SafePuzzle : Safe
     private string correctPassword = "123";
     private string input;
     [SerializeField] private TextMeshProUGUI result;
-    [Header("buttons")]
-    [SerializeField] private Button one;
-    [SerializeField] private Button two;
-    [SerializeField] private Button three;
-    [SerializeField] private Button four;
-    [SerializeField] private Button five;
-    [SerializeField] private Button six;
-    [SerializeField] private Button seven;
-    [SerializeField] private Button eight;
-    [SerializeField] private Button nine;
-    [SerializeField] private Button zero;
-    [SerializeField] private Button Reset;
-    [SerializeField] private Button Enter;
 
-    private void Start()
+  public void onClicked(Button button)
     {
-        one.onClick.AddListener(() => input += "1");
-        two.onClick.AddListener(() => input += "2");
-        three.onClick.AddListener(() => input += "3");
-        four.onClick.AddListener(() => input += "4");
-        five.onClick.AddListener(() => input += "5");
-        six.onClick.AddListener(() => input += "6");
-        seven.onClick.AddListener(() => input += "7");
-        eight.onClick.AddListener(() => input += "8");
-        nine.onClick.AddListener(() => input += "9");
-        Reset.onClick.AddListener(() => input = "");
-        Enter.onClick.AddListener(() =>
+        if (button.name == "Enter")
         {
             if (input.Equals(correctPassword))
             {
@@ -47,14 +24,19 @@ public class SafePuzzle : Safe
             else
             {
                 wrongPassword();
-                Invoke("eraseMessage", 2f); 
+                Invoke("eraseMessage", 2f);
             }
+        } else if (button.name == "R")
+        {
+            input = "";
+        } else
+        {
+            input += button.name;
         }
-        );
     }
-   
- 
-private void open()
+    
+
+    private void open()
 {
     result.text = "Correct";
     result.color = Color.green;
