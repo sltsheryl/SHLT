@@ -41,15 +41,7 @@ public class Decoder : MonoBehaviour
         string cipherText = "";
         for (int i = 0; i < plainText.Length; i++)
         {
-            if (plainText[i] == ' ')
-            {
-                cipherText += plainText[i];
-            }
-            else if (plainText[i] == ',')
-            {
-                cipherText += plainText[i];
-            }
-            else if (plainText[i] == '.')
+            if (plainText[i] == ' ' || plainText[i] == '.' || plainText[i] == ',')
             {
                 cipherText += plainText[i];
             }
