@@ -8,7 +8,7 @@ namespace SQLClient
     public class Manager : MonoBehaviour
     {
         HttpClient client = new HttpClient();
-        string baseUrl = "http://localhost:8080";
+        string baseUrl = "https://shltescaperoom.herokuapp.com";
 
         // get users
         public int GetUser(User newUser)

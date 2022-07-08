@@ -1,17 +1,17 @@
 {
     "name": "shlt",
     "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
+    "description": "An Express server to handle the backend of the game deployed to Heroku",
+    "main": "server.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "build-production": "node server.js"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Sheemo/SHLT.git"
     },
-    "keywords": [],
-    "author": "",
+    "keywords": ["heroku", "express"],
+    "author": "The SHLT",
     "license": "ISC",
     "bugs": {
         "url": "https://github.com/Sheemo/SHLT/issues"

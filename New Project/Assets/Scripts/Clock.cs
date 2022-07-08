@@ -9,7 +9,7 @@ public class Clock : MonoBehaviour
     [SerializeField] private GameObject minuteHand;
     [SerializeField] private GameObject secondHand;
 
-    void Start()
+    private void Start()
     {
         System.DateTime theTime = System.DateTime.Now;
         int currMinute = theTime.Minute;
@@ -20,7 +20,7 @@ public class Clock : MonoBehaviour
         secondHand.transform.Rotate(Vector3.right * currSecond);
 
     }
-    void Update()
+    private void Update()
     {
         secondHand.transform.Rotate(6 * Vector3.right * Time.deltaTime);
         hourHand.transform.Rotate(1/120 * Vector3.right * Time.deltaTime);

@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 // const routes = require('./routes/index.js');
+const PORT = process.env.PORT || 80;
 const Database = require('./database');
 
 const db = new Database('users.db');
@@ -67,5 +68,5 @@ app.post('/api/resetpassword', async(req, res) => {
 (async() => {
     await db.connect();
     await db.migrate(); // just for testing
-    app.listen(8080, '0.0.0.0', () => console.log('Listening on port 8080'));
+    app.listen(PORT, '0.0.0.0', () => console.log('Listening on port 80'));
 })();

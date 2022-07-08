@@ -65,7 +65,7 @@ public class Register : MonoBehaviour
                 else
                 {
                     messageObject.gameObject.SetActive(true);
-                    message.SetText("Invalid Username or Password");
+                    message.SetText("Choose another username!");
                 }
 
             }
