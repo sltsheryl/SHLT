@@ -6,7 +6,7 @@ using UnityEngine;
 public class Safe : Interactable
 {
     [SerializeField] private CanvasGroup puzzleScreen;
-    [SerializeField] private Camera playerCamera;
+    [SerializeField] private CanvasManager canvasManager;
     [SerializeField] private GameObject go;
 
     private Outline outline;
@@ -19,18 +19,6 @@ public class Safe : Interactable
         outline.enabled = false;
     }
 
-    private void Update() 
-    {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-            puzzleScreen.alpha = 0f;
-            puzzleScreen.gameObject.SetActive(false);
-            FPSController.CanMove = true;
-
-        }
-
-
-    }
     public override void OnFocus()
     {
         outline.enabled = true;
@@ -39,15 +27,13 @@ public class Safe : Interactable
     public override void OnInteract()
     {
         Debug.Log("Safe clicked!");
-        puzzleScreen.GetComponent<Canvas>().gameObject.SetActive(true); 
-        puzzleScreen.alpha = 0.85f;
-        FPSController.CanMove = false;
+        puzzleScreen.gameObject.SetActive(true);
+        canvasManager.AddToCanvasStack(puzzleScreen);
     }
 
     public override void OnLoseFocus()
     {
         outline.enabled = false;
-        puzzleScreen.alpha = 0f;
     }
 
     public void openSafe()

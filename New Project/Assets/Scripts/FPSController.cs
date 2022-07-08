@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class FPSController : MonoBehaviour
 {
-    public static bool CanMove = true;
-    //public static bool CanMove { get; private set; } = true;
+    public static bool CanMove { get; set; } = true;
+    public static bool CanLook { get; set; } = true;
     private bool isSprinting => canSprint && Input.GetKey(sprintKey);
     private bool shouldJump => Input.GetKey(jumpKey) && characterController.isGrounded;
     private bool shouldCrouch => Input.GetKeyDown(crouchKey) && !duringCrouchAnimation && characterController.isGrounded;
@@ -53,8 +53,6 @@ public class FPSController : MonoBehaviour
     [SerializeField] private LayerMask interactionLayer = default;
     private Interactable currentInteractable;
 
-    public static Switch lightSwitch = new Switch();
-
     private Camera playerCamera;
     private CharacterController characterController;
 
@@ -67,8 +65,8 @@ public class FPSController : MonoBehaviour
     {
         playerCamera = GetComponentInChildren<Camera>();
         characterController = GetComponent<CharacterController>();
-        Cursor.visible = true;
-        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -77,7 +75,10 @@ public class FPSController : MonoBehaviour
         if (CanMove)
         {
             HandleMovementInput();
-            HandleMouseLook();
+            if (CanLook)
+            {
+                HandleMouseLook();
+            } 
 
             if (canJump)
             {
@@ -96,6 +97,23 @@ public class FPSController : MonoBehaviour
             }
             ApplyFinalMovements();
         }
+    }
+
+    public static void EnableControls()
+    {
+        CanMove = true;
+        CanLook = true;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public static void DisableControls()
+    {
+        CanMove = false;
+        CanLook = false;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
     }
 
     private void HandleMovementInput()

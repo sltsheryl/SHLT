@@ -6,9 +6,7 @@ public class Switch : Interactable
 {
     private Outline outline;
     private bool state = true;
-    // Subject: Switch
-    // Observers: EachLight (which extends from LightObserver)
-    private List<LightObserver> observers = new List<LightObserver>();
+    private LightSubject lightSubject = new LightSubject();
 
     private void Start()
     {
@@ -24,7 +22,8 @@ public class Switch : Interactable
     public override void OnInteract()
     {
         Debug.Log("Light clicked!");
-        Notify();
+        ToggleState();
+        lightSubject.DispatchNotifications(state);
     }
 
     public override void OnLoseFocus()
@@ -32,21 +31,13 @@ public class Switch : Interactable
         outline.enabled = false;
     }
 
-    public bool getState()
+    public LightSubject GetLightSubject()
     {
-        return state;
+        return lightSubject;
     }
 
-    public void Notify()
+    private void ToggleState()
     {
-        for (int i = 0; i < observers.Count; i++)
-        {
-            observers[i].OnNotify();
-        }
-    }
-
-    public void Suscribe(LightObserver observer)
-    {
-        observers.Add(observer);
+        state = !state;
     }
 }
