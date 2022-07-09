@@ -17,6 +17,8 @@ public class ResetPwd : MonoBehaviour
     [SerializeField] private Button reset;
     [SerializeField] private Button backButton;
     [SerializeField] private Selectable firstInput;
+    [SerializeField] private Button quitApp;
+
     private FieldSequence fieldSequence;
     private EventSystem system;
     private Manager manager = new Manager();
@@ -29,6 +31,8 @@ public class ResetPwd : MonoBehaviour
         firstInput.Select();
         reset.GetComponent<Button>().onClick.AddListener(() => Reset());
         backButton.GetComponent<Button>().onClick.AddListener(() => SceneManager.LoadScene("Menu"));
+        quitApp.GetComponent<Button>().onClick.AddListener(() => Application.Quit());
+
     }
 
     public void Update()

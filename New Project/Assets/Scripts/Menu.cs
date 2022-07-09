@@ -17,6 +17,8 @@ public class Menu : MonoBehaviour
     [SerializeField] private Button registerButton;
     [SerializeField] private Button forgotPasswordButton;
     [SerializeField] private Selectable firstInput;
+    [SerializeField] private Button quitApp;
+
     private FieldSequence fieldSequence;
     private EventSystem system;
     private Manager manager = new Manager();
@@ -30,6 +32,8 @@ public class Menu : MonoBehaviour
         submitButton.GetComponent<Button>().onClick.AddListener(() => Login());
         registerButton.GetComponent<Button>().onClick.AddListener(() => SceneManager.LoadScene("RegisterPage"));
         forgotPasswordButton.GetComponent<Button>().onClick.AddListener(() => SceneManager.LoadScene("ResetPassword"));
+        quitApp.GetComponent<Button>().onClick.AddListener(() => Application.Quit());
+
     }
 
     public void Update()
@@ -55,7 +59,7 @@ public class Menu : MonoBehaviour
             if (userFound == 0)
             {
                 Debug.Log("Successful Login!");
-                SceneManager.LoadScene("Transition");
+                SceneManager.LoadScene("StartGame");
             }
             else if (userFound == 1)
             {

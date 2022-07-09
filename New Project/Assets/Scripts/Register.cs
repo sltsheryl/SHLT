@@ -16,6 +16,7 @@ public class Register : MonoBehaviour
     [SerializeField] private TMP_InputField password;
     [SerializeField] private Button registerButton;
     [SerializeField] private Button backButton;
+    [SerializeField] private Button quitApp;
     [SerializeField] private Selectable firstInput;
     private FieldSequence fieldSequence;
     private EventSystem system;
@@ -29,6 +30,8 @@ public class Register : MonoBehaviour
         firstInput.Select();
         registerButton.GetComponent<Button>().onClick.AddListener(() => RegisterNow());
         backButton.GetComponent<Button>().onClick.AddListener(() => SceneManager.LoadScene("Menu"));
+        quitApp.GetComponent<Button>().onClick.AddListener(() => Application.Quit());
+
     }
 
     public void Update()
