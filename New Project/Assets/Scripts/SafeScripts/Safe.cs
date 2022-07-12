@@ -17,6 +17,7 @@ public class Safe : Interactable
     {
         outline = GetComponent<Outline>();
         outline.enabled = false;
+
     }
 
     public override void OnFocus()
@@ -47,7 +48,8 @@ public class Safe : Interactable
             go.gameObject.transform.Rotate(new Vector3(0, rotationAmount, 0));
             count += rotationAmount;
         }
-        puzzleScreen.GetComponent<Canvas>().gameObject.SetActive(false);
+        canvasManager.PopFromCanvasStack();
+
 
     }
 
