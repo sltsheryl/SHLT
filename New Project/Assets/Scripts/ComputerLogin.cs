@@ -15,6 +15,8 @@ public class ComputerLogin : MonoBehaviour
     [SerializeField] private CanvasGroup computerPage;
     [SerializeField] private CanvasGroup caesarMessage;
     [SerializeField] private TextMeshProUGUI message;
+    [SerializeField] private string correctUsername;
+    [SerializeField] private string correctPassword;
 
 
     private void Start()
@@ -31,7 +33,7 @@ public class ComputerLogin : MonoBehaviour
     
     private void tryLogin()
     {
-        if (username.text == "admin" && password.text == "admin")
+        if (username.text.Equals(correctUsername) && password.text.Equals(correctPassword))
         {
             loginPage.gameObject.SetActive(false);
             computerPage.gameObject.SetActive(true);
