@@ -12,6 +12,8 @@ public class SceneTransition : MonoBehaviour
         if (go.transform.localScale.x >= 7.5326)
         {
             SceneManager.LoadScene("RoomOne");
+            FPSController.CanMove = true;
+            FPSController.CanLook = true;
         }
     }
 }
