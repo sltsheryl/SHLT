@@ -5,11 +5,12 @@ using UnityEngine.UI;
 using TMPro;
 
 
-public class SafePuzzle : Safe
+public class SafePuzzle : MonoBehaviour
 {
     private string correctPassword = "123";
     private string input;
     [SerializeField] private TextMeshProUGUI result;
+    [SerializeField] private Safe safe;
 
   public void onClicked(Button button)
     {
@@ -38,7 +39,7 @@ public class SafePuzzle : Safe
 {
     result.text = "Correct";
     result.color = Color.green;
-        openSafe();
+        safe.openSafe();
     }
     private void wrongPassword()
     {
