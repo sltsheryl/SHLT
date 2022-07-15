@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class AppManager : MonoBehaviour
 {
+    //[SerializeField] private int numOfApps;
+    //[SerializeField] private List<Button> buttonList = new List<Button>();
+    //[SerializeField] private List<CanvasGroup> canvasList = new List<CanvasGroup>();
+
     [SerializeField] private Button decoder;
     [SerializeField] private Button message;
     [SerializeField] private CanvasGroup decoderBrowser;
@@ -14,6 +18,7 @@ public class AppManager : MonoBehaviour
 
     private void Start()
     {
+        
         Messagezoomed = false;
         Decoderzoomed = false;
         decoder.GetComponent<Button>().onClick.AddListener(() =>
