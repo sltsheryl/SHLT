@@ -28,7 +28,6 @@ public class Safe : Interactable
     public override void OnInteract()
     {
         Debug.Log("Safe clicked!");
-        puzzleScreen.gameObject.SetActive(true);
         canvasManager.AddToCanvasStack(puzzleScreen);
     }
 
@@ -39,8 +38,8 @@ public class Safe : Interactable
 
     public void openSafe()
     {
-        FPSController.CanMove = true;
-        puzzleScreen.gameObject.SetActive(false);
+        canvasManager.PopFromCanvasStack();
+       
         go.gameObject.transform.Rotate(new Vector3(0, rotationAmount, 0));
         float count = 0;
         while (count <= 90)
@@ -48,7 +47,7 @@ public class Safe : Interactable
             go.gameObject.transform.Rotate(new Vector3(0, rotationAmount, 0));
             count += rotationAmount;
         }
-        canvasManager.PopFromCanvasStack();
+     
 
 
     }

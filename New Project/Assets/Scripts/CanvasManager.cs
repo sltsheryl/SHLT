@@ -9,11 +9,9 @@ public class CanvasManager : MonoBehaviour
 
     public void AddToCanvasStack(CanvasGroup canvas)
     {
-        if (canvasList.Count == 0)
-        {
-            FPSController.DisableControls();
-        }
+        canvas.gameObject.SetActive(true);
         canvasList.Add(canvas);
+        FPSController.DisableControls();
     }
 
     public void PopFromCanvasStack()
@@ -21,11 +19,38 @@ public class CanvasManager : MonoBehaviour
         CanvasGroup lastCanvas = canvasList[canvasList.Count - 1];
         canvasList.RemoveAt(canvasList.Count - 1);  // Assume stack is non-empty
         lastCanvas.gameObject.SetActive(false);
+        if (canvasList.Count == 0)
+        {
+            FPSController.EnableControls();
+        }
+    }
+
+    public void PopTillEmpty()
+    {
+        while (canvasList.Count > 0)
+        {
+            CanvasGroup lastCanvas = canvasList[canvasList.Count - 1];
+            canvasList.RemoveAt(canvasList.Count - 1);  // Assume stack is non-empty
+            lastCanvas.gameObject.SetActive(false);
+        }
         FPSController.EnableControls();
+    }
+
+    public void removeCanvas(CanvasGroup canvas)
+    {
+        if (canvasList.Contains(canvas)){
+            canvas.gameObject.SetActive(false);
+            canvasList.Remove(canvas);
+        }
+        if (canvasList.Count == 0)
+        {
+            FPSController.EnableControls();
+        }
     }
 
     void Update()
     {
+        Debug.Log(canvasList.Count);
         if (Input.GetKey(KeyCode.Escape))
         {
             Debug.Log("Escape pressed!" + " " + canvasList.Count);
@@ -40,7 +65,6 @@ public class CanvasManager : MonoBehaviour
             else
             {
                 // pull up the pause menu
-                pauseMenu.gameObject.SetActive(true);
                 AddToCanvasStack(pauseMenu);
             }
         }

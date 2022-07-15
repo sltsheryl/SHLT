@@ -27,7 +27,7 @@ public class FPSController : MonoBehaviour
     [SerializeField] private float walkSpeed = 3.0f;
     [SerializeField] private float sprintSpeed = 6.0f;
     [SerializeField] private float crouchSpeed = 1.5f;
-
+    
     [Header("Look Parameters")]
     [SerializeField, Range(1, 10)] private float lookSpeedX = 2.0f; 
     [SerializeField, Range(1, 10)] private float lookSpeedY = 2.0f; 
@@ -65,8 +65,8 @@ public class FPSController : MonoBehaviour
     {
         playerCamera = GetComponentInChildren<Camera>();
         characterController = GetComponent<CharacterController>();
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = true;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
