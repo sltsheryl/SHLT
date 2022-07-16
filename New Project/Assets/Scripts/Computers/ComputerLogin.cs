@@ -13,24 +13,36 @@ public class ComputerLogin : MonoBehaviour
     [SerializeField] private CanvasGroup puzzleScreen;
     [SerializeField] private CanvasGroup loginPage;
     [SerializeField] private CanvasGroup computerPage;
-    [SerializeField] private CanvasGroup caesarMessage;
+    [SerializeField] private CanvasGroup nextItem;
     [SerializeField] private TextMeshProUGUI message;
+    private FieldSequence fieldSequence;
     [SerializeField] private string correctUsername;
     [SerializeField] private string correctPassword;
+    [SerializeField] private Selectable firstInput;
     [SerializeField] private CanvasManager canvasManager;
 
 
     private void Start()
     {
+        fieldSequence = new FieldSequence();
+        firstInput.Select();
         cancel.GetComponent<Button>().onClick.AddListener(() =>
         {
-            canvasManager.PopTillEmpty();
+            canvasManager.PopFromCanvasStack();
 
         });
         login.GetComponent<Button>().onClick.AddListener(() => tryLogin());
     }
 
-    
+    public void Update()
+    {
+        fieldSequence.fieldOrder();
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            tryLogin();
+        }
+    }
+
     private void tryLogin()
     {
         if (username.text.Equals(correctUsername) && password.text.Equals(correctPassword))
@@ -46,6 +58,6 @@ public class ComputerLogin : MonoBehaviour
 
     private void showMessage()
     {
-        canvasManager.AddToCanvasStack(caesarMessage);
+        canvasManager.AddToCanvasStack(nextItem);
     }
 }

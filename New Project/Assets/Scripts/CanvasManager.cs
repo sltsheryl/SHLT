@@ -25,17 +25,6 @@ public class CanvasManager : MonoBehaviour
         }
     }
 
-    public void PopTillEmpty()
-    {
-        while (canvasList.Count > 0)
-        {
-            CanvasGroup lastCanvas = canvasList[canvasList.Count - 1];
-            canvasList.RemoveAt(canvasList.Count - 1);  // Assume stack is non-empty
-            lastCanvas.gameObject.SetActive(false);
-        }
-        FPSController.EnableControls();
-    }
-
     public void removeCanvas(CanvasGroup canvas)
     {
         if (canvasList.Contains(canvas)){
@@ -48,10 +37,26 @@ public class CanvasManager : MonoBehaviour
         }
     }
 
+    public CanvasGroup getLastElement()
+    {
+        if (canvasList.Count == 0)
+        {
+            return null;
+        }
+        else
+        {
+            return canvasList[canvasList.Count - 1];
+        }
+
+    }
+
     void Update()
     {
-        Debug.Log(canvasList.Count);
-        if (Input.GetKey(KeyCode.Escape))
+        if (canvasList.Count > 0)
+        {
+            Debug.Log(canvasList[canvasList.Count - 1].gameObject.name);
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             Debug.Log("Escape pressed!" + " " + canvasList.Count);
             if (canvasList.Count > 0)
