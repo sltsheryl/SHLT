@@ -52,10 +52,6 @@ public class CanvasManager : MonoBehaviour
 
     void Update()
     {
-        if (canvasList.Count > 0)
-        {
-            Debug.Log(canvasList[canvasList.Count - 1].gameObject.name);
-        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Debug.Log("Escape pressed!" + " " + canvasList.Count);

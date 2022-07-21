@@ -1,29 +1,26 @@
-﻿using UnityEngine;
+﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class Words : MonoBehaviour
 {
-    [SerializeField] private Switch lightSwitch;
-    private LightObserver lightObserver;
+    [SerializeField] private bool currentLighted;
+    [SerializeField] private Image canvasImage;
 
-    private void Start()
+    public void ToggleState()
     {
-        LightSubject lightSubject = lightSwitch.GetLightSubject();
-        lightObserver = new LightObserver(this, lightSubject);
-    }
-
-    public void UpdateState(bool state)
-    {
-        bool currentLighted = state;
+        currentLighted = !currentLighted;
         if (currentLighted)
         {
-            this.gameObject.SetActive(false);
+            canvasImage.gameObject.SetActive(false);
             Debug.Log("Unshow words");
 
         }
         else
         {
-            this.gameObject.SetActive(true);
+            canvasImage.gameObject.SetActive(true);
             Debug.Log("Show words");
         }
     }

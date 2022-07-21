@@ -6,12 +6,14 @@ public class Switch : Interactable
 {
     private Outline outline;
     private bool state = true;
-    private LightSubject lightSubject = new LightSubject();
+    private LightSubject lightSubject;
 
     private void Start()
     {
         outline = GetComponent<Outline>();
         outline.enabled = false;
+
+        lightSubject = GetComponent<LightSubject>();
     }
 
     public override void OnFocus()
@@ -29,11 +31,6 @@ public class Switch : Interactable
     public override void OnLoseFocus()
     {
         outline.enabled = false;
-    }
-
-    public LightSubject GetLightSubject()
-    {
-        return lightSubject;
     }
 
     private void ToggleState()

@@ -1,6 +1,6 @@
 const sqlite = require('sqlite-async');
 const crypto = require('crypto');
-const e = require('express');
+const { randomAsciiString } = require('./scramhelper');
 
 class Database {
     constructor(db_file) {
@@ -20,26 +20,43 @@ class Database {
                 id           INTEGER      NOT NULL PRIMARY KEY AUTOINCREMENT,
 				username     VARCHAR(255) NOT NULL UNIQUE,
                 hash         VARCHAR(255) NOT NULL,
-				salt         VARCHAR(255)
+                serverKey    VARCHAR(255) NOT NULL,
+				salt         VARCHAR(255) NOT NULL,
+				i			 INTEGER      NOT NULL
             );
         `);
     }
 
-    async checkUser(username, pwd) {
-        const hash = crypto.createHash('sha256').update(pwd).digest('hex');
+    async getUserScramDetails(username) {
         return new Promise(async(resolve, reject) => {
             try {
-                let stmt = await this.db.prepare('SELECT hash FROM users WHERE username = ?');
+                let stmt = await this.db.prepare('SELECT salt, i FROM users WHERE username = ?');
                 stmt.get(username)
                     .then(rows => {
                         if (rows == undefined) {
                             reject("Invalid user");
-                        } else if (rows.hash == hash) {
-                            resolve();
                         } else {
-                            reject("Wrong password");
+                            resolve(rows);
                         }
-                    })
+                    });
+            } catch (e) {
+                reject(e);
+            }
+        });
+    }
+
+    async getUserScramHash(username) {
+        return new Promise(async (resolve, reject) => {
+            try {
+                let stmt = await this.db.prepare('SELECT hash, serverKey FROM users WHERE username = ?');
+                stmt.get(username)
+                    .then(rows => {
+                        if (rows == undefined) {
+                            reject("Invalid user");
+                        } else {
+                            resolve(rows);
+                        }
+                    });
             } catch (e) {
                 reject(e);
             }
@@ -47,24 +64,59 @@ class Database {
     }
 
     async addUser(username, pwd) {
-        const hash = crypto.createHash('sha256').update(pwd).digest('hex');
-        return new Promise(async(resolve, reject) => {
+        const salt = randomAsciiString(22);
+        const iterationCount = crypto.randomInt(2048, 4096);
+
+        const saltedPassword = crypto.pbkdf2Sync(pwd, salt, iterationCount, 32, 'sha256');
+        const clientKey = crypto.createHmac('sha256', saltedPassword).update('Client Key').digest();
+        const serverKey = crypto.createHmac('sha256', saltedPassword).update('Server Key').digest('hex');
+        const hash = crypto.createHash('sha256').update(clientKey).digest('hex');
+
+        return new Promise(async (resolve, reject) => {
             try {
-                let stmt = await this.db.prepare('INSERT INTO users (username, hash) VALUES( ?, ? )');
-                resolve(stmt.run(username, hash));
+                let stmt = await this.db.prepare('INSERT INTO users (username, hash, serverKey, salt, i) VALUES ( ?, ?, ?, ?, ? )');
+                resolve(stmt.run(username, hash, serverKey, salt, iterationCount));
             } catch (e) {
                 reject(e);
             }
         });
     }
 
+    async isUserPresent(username) {
+        return new Promise(async (resolve, reject) => {
+            try {
+                let stmt = await this.db.prepare('SELECT id FROM users WHERE username = ?');
+                let rows = await stmt.run(username);
+                if (rows.changes == 0) {
+                    reject("User does not exist");
+                } else {
+                    resolve();
+                }
+            } catch (e) {
+                reject(e);
+            }
+        }) 
+    }
+
     async modifyUser(username, pwd) {
-        const hash = crypto.createHash('sha256').update(pwd).digest('hex');
+        try {
+            await this.isUserPresent(username);
+        } catch (e) {
+            return Promise.reject(e);
+        }
+
+        const salt = randomAsciiString(22);
+        const iterationCount = crypto.randomInt(2048, 4096);
+
+        const saltedPassword = crypto.pbkdf2Sync(pwd, salt, iterationCount, 32, 'sha256');
+        const clientKey = crypto.createHmac('sha256', saltedPassword).update('Client Key').digest();
+        const serverKey = crypto.createHmac('sha256', saltedPassword).update('Server Key').digest('hex');
+        const hash = crypto.createHash('sha256').update(clientKey).digest('hex');
+
         return new Promise(async(resolve, reject) => {
             try {
-                const newHash = crypto.createHash('sha256').update(pwd).digest('hex');
-                let stmt = await this.db.prepare('UPDATE users SET hash = ? WHERE username = ?');
-                resolve(stmt.run(newHash, username));
+                let stmt = await this.db.prepare('UPDATE users SET hash = ?, serverKey = ?, salt = ?, i = ? WHERE username = ?');
+                resolve(stmt.run(hash, serverKey, salt, iterationCount, username));
             } catch (e) {
                 reject(e)
             }

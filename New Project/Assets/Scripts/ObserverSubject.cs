@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObserverSubject<T>
+public class ObserverSubject<T> : MonoBehaviour
 {
     private List<Observer<T>> observers = new List<Observer<T>>();
 

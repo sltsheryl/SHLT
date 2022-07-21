@@ -65,8 +65,8 @@ public class FPSController : MonoBehaviour
     {
         playerCamera = GetComponentInChildren<Camera>();
         characterController = GetComponent<CharacterController>();
-        Cursor.visible = true;
-        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -113,7 +113,6 @@ public class FPSController : MonoBehaviour
         CanLook = false;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-
     }
 
     private void HandleMovementInput()

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4452408, g: 0.49486506, b: 0.5738917, a: 1}
+  m_IndirectSpecularColor: {r: 0.4452417, g: 0.49486607, b: 0.5738931, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -862,6 +862,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4322541131246098, guid: 98ed76314c8d820429b556f5a446e393, type: 3}
   m_PrefabInstance: {fileID: 822517847}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &51996806 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7591954321598630186, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
+  m_PrefabInstance: {fileID: 1337597164}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &51996807 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6106806888069199568, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
+  m_PrefabInstance: {fileID: 1337597164}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51996806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b42957becea54b19b1519b421ba796d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &51996809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51996806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 326785d24c9bf4accaa630c92bf7b667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightSubject: {fileID: 562128739}
+  callback:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 51996807}
+        m_TargetAssemblyTypeName: EachLight, Assembly-CSharp
+        m_MethodName: ToggleState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &56076683 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4836093174739976, guid: 247e5b33a1b1dba43a82e14ad7191756, type: 3}
@@ -1261,7 +1305,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Resume Game
+  m_text: Resume
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c68bd94dcfe4843bd9d47eee9347294d, type: 2}
   m_sharedMaterial: {fileID: 8472157963157175270, guid: c68bd94dcfe4843bd9d47eee9347294d, type: 2}
@@ -1351,7 +1395,7 @@ GameObject:
   - component: {fileID: 89463916}
   - component: {fileID: 89463915}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: ExitToDesktop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1374,7 +1418,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 73, y: -253}
+  m_AnchoredPosition: {x: 0.000030518, y: -257}
   m_SizeDelta: {x: 170.5878, y: 32.3815}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &89463915
@@ -1420,7 +1464,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 89463916}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1239469655}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: Quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &89463916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1920,6 +1976,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4992148559864822, guid: a5a328fd0bdbc82418c900ec0e290bd4, type: 3}
   m_PrefabInstance: {fileID: 992667925}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &114645085 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7591954321598630186, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
+  m_PrefabInstance: {fileID: 1705475947}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &114645086 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6106806888069199568, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
+  m_PrefabInstance: {fileID: 1705475947}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114645085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b42957becea54b19b1519b421ba796d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114645088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114645085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 326785d24c9bf4accaa630c92bf7b667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightSubject: {fileID: 562128739}
+  callback:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114645086}
+        m_TargetAssemblyTypeName: EachLight, Assembly-CSharp
+        m_MethodName: ToggleState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &115682206
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5896,6 +5996,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 562128736}
     - target: {fileID: 6106806888069199568, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
+      propertyPath: currentLighted
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106806888069199568, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
       propertyPath: onLightMaterial
       value: 
       objectReference: {fileID: 2100000, guid: ea4118597f0a1458898d2f94a0f772d1, type: 2}
@@ -6314,6 +6418,7 @@ GameObject:
   - component: {fileID: 490027916}
   - component: {fileID: 490027918}
   - component: {fileID: 490027917}
+  - component: {fileID: 490027919}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -6335,10 +6440,10 @@ RectTransform:
   m_Father: {fileID: 1239469653}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 59.74231, y: -23.167969}
-  m_SizeDelta: {x: -1361.6683, y: -479.7524}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 713.251, y: 850.271}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &490027917
 MonoBehaviour:
@@ -6378,6 +6483,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 490027915}
   m_CullTransparentMesh: 1
+--- !u!114 &490027919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490027915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 0
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 0
+  m_TargetGraphic: {fileID: 490027917}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &492176051 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4992148559864822, guid: a5a328fd0bdbc82418c900ec0e290bd4, type: 3}
@@ -6803,6 +6952,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &511588212 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7591954321598630186, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
+  m_PrefabInstance: {fileID: 1704144729}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &511588213 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6106806888069199568, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
+  m_PrefabInstance: {fileID: 1704144729}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511588212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b42957becea54b19b1519b421ba796d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &511588215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511588212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 326785d24c9bf4accaa630c92bf7b667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightSubject: {fileID: 562128739}
+  callback:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 511588213}
+        m_TargetAssemblyTypeName: EachLight, Assembly-CSharp
+        m_MethodName: ToggleState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &511891766 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4992148559864822, guid: a5a328fd0bdbc82418c900ec0e290bd4, type: 3}
@@ -7414,6 +7607,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 557678546}
   m_CullTransparentMesh: 1
+--- !u!1 &558858195 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7591954321598630186, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
+  m_PrefabInstance: {fileID: 635066959}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &558858196 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6106806888069199568, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
+  m_PrefabInstance: {fileID: 635066959}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558858195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b42957becea54b19b1519b421ba796d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &558858198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558858195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 326785d24c9bf4accaa630c92bf7b667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightSubject: {fileID: 562128739}
+  callback:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 558858196}
+        m_TargetAssemblyTypeName: EachLight, Assembly-CSharp
+        m_MethodName: ToggleState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &560750868 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 87eb80c7faef063428ecc6e42d4a9f3f, type: 3}
@@ -7529,6 +7766,18 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3873007252529343490, guid: f3c9a88e4c8644dd88fabc1510f3423d, type: 3}
   m_PrefabInstance: {fileID: 562128733}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &562128739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562128734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caaece63d50f57c4d959dbd6fe6b3153, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &562312831
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7978,7 +8227,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Exit Game
+  m_text: Exit to Main Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c68bd94dcfe4843bd9d47eee9347294d, type: 2}
   m_sharedMaterial: {fileID: 8472157963157175270, guid: c68bd94dcfe4843bd9d47eee9347294d, type: 2}
@@ -8131,6 +8380,10 @@ PrefabInstance:
       propertyPath: lightSwitch
       value: 
       objectReference: {fileID: 562128736}
+    - target: {fileID: 6106806888069199568, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
+      propertyPath: currentLighted
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6106806888069199568, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
       propertyPath: onLightMaterial
       value: 
@@ -9356,6 +9609,10 @@ PrefabInstance:
       propertyPath: lightSwitch
       value: 
       objectReference: {fileID: 562128736}
+    - target: {fileID: 6106806888069199568, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
+      propertyPath: currentLighted
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6106806888069199568, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
       propertyPath: onLightMaterial
       value: 
@@ -13400,8 +13657,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 289, y: 258}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -0.000026703, y: 296}
+  m_SizeDelta: {x: 154.48, y: 49.699}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1005512789
 MonoBehaviour:
@@ -13457,7 +13714,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -14316,6 +14573,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 562128736}
     - target: {fileID: 6106806888069199568, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
+      propertyPath: currentLighted
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106806888069199568, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
       propertyPath: onLightMaterial
       value: 
       objectReference: {fileID: 2100000, guid: ea4118597f0a1458898d2f94a0f772d1, type: 2}
@@ -14788,6 +15049,50 @@ CanvasGroup:
   m_CorrespondingSourceObject: {fileID: 7686514680501445028, guid: ebd0ba95be956475fbed1c9cb2a9b4cb, type: 3}
   m_PrefabInstance: {fileID: 1691267178}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1136246462 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7591954321598630186, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
+  m_PrefabInstance: {fileID: 1322896964}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1136246463 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6106806888069199568, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
+  m_PrefabInstance: {fileID: 1322896964}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136246462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b42957becea54b19b1519b421ba796d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1136246465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136246462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 326785d24c9bf4accaa630c92bf7b667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightSubject: {fileID: 562128739}
+  callback:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1136246463}
+        m_TargetAssemblyTypeName: EachLight, Assembly-CSharp
+        m_MethodName: ToggleState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1137534141
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16573,11 +16878,11 @@ GameObject:
   - component: {fileID: 1239469653}
   - component: {fileID: 1239469652}
   - component: {fileID: 1239469651}
-  - component: {fileID: 1239469650}
   - component: {fileID: 1239469654}
   - component: {fileID: 1239469655}
+  - component: {fileID: 1239469650}
   m_Layer: 5
-  m_Name: Pause
+  m_Name: PauseMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16612,10 +16917,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1980, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -16692,9 +16997,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfc511c1bc03f4c77887039bd89025b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resumeGame: {fileID: 1997764273}
-  quitApp: {fileID: 89463915}
-  exitGame: {fileID: 1846852647}
   canvasManager: {fileID: 1527762747}
 --- !u!1001 &1241581782
 PrefabInstance:
@@ -17459,6 +17761,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 562128736}
     - target: {fileID: 6106806888069199568, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
+      propertyPath: currentLighted
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106806888069199568, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
       propertyPath: onLightMaterial
       value: 
       objectReference: {fileID: 2100000, guid: ea4118597f0a1458898d2f94a0f772d1, type: 2}
@@ -18064,6 +18370,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 562128736}
     - target: {fileID: 6106806888069199568, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
+      propertyPath: currentLighted
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106806888069199568, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
       propertyPath: onLightMaterial
       value: 
       objectReference: {fileID: 2100000, guid: ea4118597f0a1458898d2f94a0f772d1, type: 2}
@@ -18330,6 +18640,10 @@ PrefabInstance:
       propertyPath: lightSwitch
       value: 
       objectReference: {fileID: 562128736}
+    - target: {fileID: 6106806888069199568, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
+      propertyPath: currentLighted
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6106806888069199568, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
       propertyPath: onLightMaterial
       value: 
@@ -18660,7 +18974,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Quit App
+  m_text: Exit to Desktop
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c68bd94dcfe4843bd9d47eee9347294d, type: 2}
   m_sharedMaterial: {fileID: 8472157963157175270, guid: c68bd94dcfe4843bd9d47eee9347294d, type: 2}
@@ -20298,6 +20612,50 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ae56147953582b4280b244e7064132d, type: 3}
+--- !u!1 &1474732944 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7591954321598630186, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
+  m_PrefabInstance: {fileID: 1550897891}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1474732945 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6106806888069199568, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
+  m_PrefabInstance: {fileID: 1550897891}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474732944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b42957becea54b19b1519b421ba796d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1474732947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474732944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 326785d24c9bf4accaa630c92bf7b667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightSubject: {fileID: 562128739}
+  callback:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1474732945}
+        m_TargetAssemblyTypeName: EachLight, Assembly-CSharp
+        m_MethodName: ToggleState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1475434321
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21505,6 +21863,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 562128736}
     - target: {fileID: 6106806888069199568, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
+      propertyPath: currentLighted
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106806888069199568, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
       propertyPath: onLightMaterial
       value: 
       objectReference: {fileID: 2100000, guid: ea4118597f0a1458898d2f94a0f772d1, type: 2}
@@ -22100,6 +22462,50 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfd16dee8b33d894c87d0160a36a5fd9, type: 3}
+--- !u!1 &1584800639 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7591954321598630186, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
+  m_PrefabInstance: {fileID: 727274551}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1584800640 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6106806888069199568, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
+  m_PrefabInstance: {fileID: 727274551}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584800639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b42957becea54b19b1519b421ba796d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1584800642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584800639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 326785d24c9bf4accaa630c92bf7b667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightSubject: {fileID: 562128739}
+  callback:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1584800640}
+        m_TargetAssemblyTypeName: EachLight, Assembly-CSharp
+        m_MethodName: ToggleState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1588322321
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22225,6 +22631,50 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfd16dee8b33d894c87d0160a36a5fd9, type: 3}
+--- !u!1 &1595849417 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7591954321598630186, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
+  m_PrefabInstance: {fileID: 465422138}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1595849418 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6106806888069199568, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
+  m_PrefabInstance: {fileID: 465422138}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595849417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b42957becea54b19b1519b421ba796d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1595849420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595849417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 326785d24c9bf4accaa630c92bf7b667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightSubject: {fileID: 562128739}
+  callback:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1595849418}
+        m_TargetAssemblyTypeName: EachLight, Assembly-CSharp
+        m_MethodName: ToggleState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1596467296
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24085,6 +24535,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 562128736}
     - target: {fileID: 6106806888069199568, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
+      propertyPath: currentLighted
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106806888069199568, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
       propertyPath: onLightMaterial
       value: 
       objectReference: {fileID: 2100000, guid: ea4118597f0a1458898d2f94a0f772d1, type: 2}
@@ -24226,6 +24680,10 @@ PrefabInstance:
       propertyPath: lightSwitch
       value: 
       objectReference: {fileID: 562128736}
+    - target: {fileID: 6106806888069199568, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
+      propertyPath: currentLighted
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6106806888069199568, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
       propertyPath: onLightMaterial
       value: 
@@ -25218,6 +25676,50 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 247e5b33a1b1dba43a82e14ad7191756, type: 3}
+--- !u!1 &1762770373 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7591954321598630186, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
+  m_PrefabInstance: {fileID: 1110845245}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1762770374 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6106806888069199568, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
+  m_PrefabInstance: {fileID: 1110845245}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762770373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b42957becea54b19b1519b421ba796d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1762770376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762770373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 326785d24c9bf4accaa630c92bf7b667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightSubject: {fileID: 562128739}
+  callback:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1762770374}
+        m_TargetAssemblyTypeName: EachLight, Assembly-CSharp
+        m_MethodName: ToggleState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1772159576 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4523669443498136, guid: 1ae56147953582b4280b244e7064132d, type: 3}
@@ -26384,16 +26886,16 @@ GameObject:
   - component: {fileID: 1842214426}
   - component: {fileID: 1842214425}
   - component: {fileID: 1842214424}
-  - component: {fileID: 1842214423}
   - component: {fileID: 1842214428}
   - component: {fileID: 1842214427}
+  - component: {fileID: 1842214423}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Words
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1842214423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26403,14 +26905,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1842214422}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Script: {fileID: 11500000, guid: 326785d24c9bf4accaa630c92bf7b667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
+  lightSubject: {fileID: 562128739}
+  callback:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1842214427}
+        m_TargetAssemblyTypeName: Words, Assembly-CSharp
+        m_MethodName: ToggleState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1842214424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26487,7 +27000,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f90133d15113042fcb05da1ab440133a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightSwitch: {fileID: 562128736}
+  currentLighted: 1
+  canvasImage: {fileID: 2044437602}
 --- !u!225 &1842214428
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -26609,7 +27123,7 @@ GameObject:
   - component: {fileID: 1846852648}
   - component: {fileID: 1846852647}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: ExitToMain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26632,7 +27146,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 73, y: -79.21908}
+  m_AnchoredPosition: {x: 0.000030518, y: -79.21908}
   m_SizeDelta: {x: 170.5878, y: 32.3815}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1846852647
@@ -26678,7 +27192,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1846852648}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1239469655}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: ReturnToMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1846852648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27347,6 +27873,50 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 247e5b33a1b1dba43a82e14ad7191756, type: 3}
+--- !u!1 &1882592546 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7591954321598630186, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
+  m_PrefabInstance: {fileID: 1906344818}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1882592547 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6106806888069199568, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
+  m_PrefabInstance: {fileID: 1906344818}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882592546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b42957becea54b19b1519b421ba796d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1882592549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882592546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 326785d24c9bf4accaa630c92bf7b667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightSubject: {fileID: 562128739}
+  callback:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1882592547}
+        m_TargetAssemblyTypeName: EachLight, Assembly-CSharp
+        m_MethodName: ToggleState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1893127406
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27484,6 +28054,10 @@ PrefabInstance:
       propertyPath: lightSwitch
       value: 
       objectReference: {fileID: 562128736}
+    - target: {fileID: 6106806888069199568, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
+      propertyPath: currentLighted
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6106806888069199568, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
       propertyPath: onLightMaterial
       value: 
@@ -27744,6 +28318,45 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1919758168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919758166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 326785d24c9bf4accaa630c92bf7b667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightSubject: {fileID: 562128739}
+  callback:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1919758169}
+        m_TargetAssemblyTypeName: EachLight, Assembly-CSharp
+        m_MethodName: ToggleState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1919758169 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6106806888069199568, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
+  m_PrefabInstance: {fileID: 7591954320399704071}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919758166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b42957becea54b19b1519b421ba796d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1924302257
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28022,7 +28635,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1946306805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28585,7 +29198,7 @@ GameObject:
   - component: {fileID: 1997764274}
   - component: {fileID: 1997764273}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Resume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28608,7 +29221,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 73, y: 93.48236}
+  m_AnchoredPosition: {x: 0.000030518, y: 90}
   m_SizeDelta: {x: 170.5878, y: 32.3815}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1997764273
@@ -28654,7 +29267,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1997764274}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1239469655}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: Resume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1997764274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29128,7 +29753,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2044437601
 RectTransform:
   m_ObjectHideFlags: 0
@@ -30081,6 +30706,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2111135068}
   m_CullTransparentMesh: 1
+--- !u!1 &2113051454 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7591954321598630186, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
+  m_PrefabInstance: {fileID: 1276250220}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2113051455 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6106806888069199568, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
+  m_PrefabInstance: {fileID: 1276250220}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113051454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b42957becea54b19b1519b421ba796d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2113051457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113051454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 326785d24c9bf4accaa630c92bf7b667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightSubject: {fileID: 562128739}
+  callback:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2113051455}
+        m_TargetAssemblyTypeName: EachLight, Assembly-CSharp
+        m_MethodName: ToggleState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &2113303688
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31194,6 +31863,10 @@ PrefabInstance:
       propertyPath: lightSwitch
       value: 
       objectReference: {fileID: 562128736}
+    - target: {fileID: 6106806888069199568, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
+      propertyPath: currentLighted
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6106806888069199568, guid: 34363c3a64f5744cbb55649b5a6d3259, type: 3}
       propertyPath: onLightMaterial
       value: 

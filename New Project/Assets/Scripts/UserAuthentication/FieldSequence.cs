@@ -5,10 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 
-public class FieldSequence : MonoBehaviour
+public class FieldSequence
 {
-    [SerializeField] private GameObject messageObject;
-    [SerializeField] private TextMeshProUGUI message;
     private EventSystem system;
 
     public void fieldOrder()
