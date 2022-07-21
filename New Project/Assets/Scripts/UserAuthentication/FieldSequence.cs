@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 
-public class FieldSequence
+public class FieldSequence : MonoBehaviour
 {
     private EventSystem system;
 

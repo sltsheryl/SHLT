@@ -5,7 +5,7 @@ using UnityEngine;
 public class Computer : Interactable
 {
     [SerializeField] private CanvasGroup puzzleScreen;
-    [SerializeField] private CanvasGroup loginPage;
+    [SerializeField] private GameObject loginPage;
     [SerializeField] private CanvasManager canvasManager;
 
     private Outline outline;
@@ -26,7 +26,7 @@ public class Computer : Interactable
     {
         Debug.Log("Computer clicked!");
         canvasManager.AddToCanvasStack(puzzleScreen);
-        canvasManager.AddToCanvasStack(loginPage);
+        loginPage.gameObject.SetActive(true);
        
     }
 

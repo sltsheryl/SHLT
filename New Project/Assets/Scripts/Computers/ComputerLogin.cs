@@ -11,27 +11,22 @@ public class ComputerLogin : MonoBehaviour
     [SerializeField] private Button login;
     [SerializeField] private Button cancel;
     [SerializeField] private CanvasGroup puzzleScreen;
-    [SerializeField] private CanvasGroup loginPage;
-    [SerializeField] private CanvasGroup computerPage;
-    [SerializeField] private CanvasGroup nextItem;
+    [SerializeField] private GameObject loginPage;
+    [SerializeField] private GameObject computerPage;
+    [SerializeField] private GameObject nextItem;
     [SerializeField] private TextMeshProUGUI message;
-    private FieldSequence fieldSequence;
     [SerializeField] private string correctUsername;
     [SerializeField] private string correctPassword;
     [SerializeField] private Selectable firstInput;
+    private FieldSequence fieldSequence;
     [SerializeField] private CanvasManager canvasManager;
-
 
     private void Start()
     {
         fieldSequence = new FieldSequence();
-        firstInput.Select();
-        cancel.GetComponent<Button>().onClick.AddListener(() =>
-        {
-            canvasManager.PopFromCanvasStack();
 
-        });
-        login.GetComponent<Button>().onClick.AddListener(() => tryLogin());
+        firstInput.Select();
+       
     }
 
     public void Update()
@@ -43,12 +38,13 @@ public class ComputerLogin : MonoBehaviour
         }
     }
 
-    private void tryLogin()
+    public void tryLogin()
     {
         if (username.text.Equals(correctUsername) && password.text.Equals(correctPassword))
         {
-            canvasManager.removeCanvas(loginPage);
-            canvasManager.AddToCanvasStack(computerPage);
+            loginPage.gameObject.SetActive(false);
+            computerPage.gameObject.SetActive(true);
+            
             Invoke("showMessage", 2f);
         } else
         {
@@ -56,8 +52,13 @@ public class ComputerLogin : MonoBehaviour
         }
     }
 
+    public void closeComputer()
+    {
+        puzzleScreen.gameObject.SetActive(false);
+    }
+
     private void showMessage()
     {
-        canvasManager.AddToCanvasStack(nextItem);
+        nextItem.gameObject.SetActive(true);
     }
 }
