@@ -14,7 +14,7 @@ using UnityEngine;
 public class ScramClient
 {
     private readonly HttpClient client = new HttpClient();
-    string baseUrl = "https://shltescaperoom.herokuapp.com/";
+    string baseUrl = "https://shltescaperoom.herokuapp.com";
 
     private Dictionary<string, object> sessionDetails = new Dictionary<string, object>();
 
