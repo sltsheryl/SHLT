@@ -62,8 +62,13 @@ public class KeyPuzzle : Interactable, ITakeable
     {
         if (pinMask == correctPins)
         {
+            Debug.Log("Key taken!");
             inventory.Take(this);
             gameObject.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("Wrong pin");
         }
     }
 }

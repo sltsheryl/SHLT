@@ -15,7 +15,7 @@ public class KeyButton : MonoBehaviour
 
     public void OnClick()
     {
-        Debug.Log("Button Pressed!");
+        Debug.Log("Button " + buttonNumber + " Pressed!");
         manager.TogglePin(buttonNumber);
     }
 }
