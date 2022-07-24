@@ -7,7 +7,7 @@ using TMPro;
 
 public class SafePuzzle : MonoBehaviour
 {
-    private string correctPassword = "123";
+    [SerializeField] private string correctPassword;
     private string input;
     [SerializeField] private TextMeshProUGUI result;
     [SerializeField] private Safe safe;
@@ -36,10 +36,12 @@ public class SafePuzzle : MonoBehaviour
     
 
     private void open()
-{
-    result.text = "Correct";
-    result.color = Color.green;
+    {
+        result.text = "Correct";
+        result.color = Color.green;
         safe.openSafe();
+        safe.gameObject.layer = 2;
+        safe.OnLoseFocus();
     }
     private void wrongPassword()
     {

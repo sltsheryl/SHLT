@@ -11,13 +11,9 @@ public class Clock : MonoBehaviour
 
     void Update()
     {
-        System.DateTime theTime = System.DateTime.Now;
-        int currMinute = theTime.Minute;
-        int currHour = theTime.Hour;
-        int currSecond = theTime.Second;
-        time.text = currHour + ": " + currMinute + ": " + currSecond;
+        time.text = DateTime.Now.ToString("HH: mm: ss");
 
-        date.text = theTime.Date.ToString("d");
+        date.text = "8/8/22"; // theTime.Date.ToString("d");
         
     }
 }

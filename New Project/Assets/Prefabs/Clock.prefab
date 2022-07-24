@@ -207,7 +207,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: hello
+  m_text: '12: 31: SS'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7d49de24de1a444d9b6041408818f682, type: 2}
   m_sharedMaterial: {fileID: -4114264952005797154, guid: 7d49de24de1a444d9b6041408818f682, type: 2}
@@ -270,7 +270,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -72.67608, w: 0}
+  m_margin: {x: -15.920639, y: 0, z: -83.715355, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

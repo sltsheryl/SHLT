@@ -3810,6 +3810,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   date: {fileID: 7989546080157498072}
   user: {fileID: 7989546078797319715}
+  username: admin
 --- !u!1 &7989546079993924289
 GameObject:
   m_ObjectHideFlags: 0
@@ -5460,7 +5461,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   input: {fileID: 7989546080156633533}
   keySlider: {fileID: 7989546080505979688}
-  decrypt: {fileID: 7989546080331593262}
   output: {fileID: 7989546080227441228}
   puzzleScreen: {fileID: 7989546079212747542}
 --- !u!114 &7989546080300154412
@@ -6563,8 +6563,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   username: {fileID: 7989546080629420213}
   password: {fileID: 7989546079069440703}
-  login: {fileID: 7989546079178160908}
-  cancel: {fileID: 7989546078756062306}
   puzzleScreen: {fileID: 7989546079212747542}
   loginPage: {fileID: 7989546080628406454}
   computerPage: {fileID: 7989546079770914314}

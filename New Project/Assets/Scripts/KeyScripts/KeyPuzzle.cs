@@ -4,12 +4,14 @@ using UnityEngine.EventSystems;
 
 using UnityEngine;
 
-public class KeyPuzzle : Interactable
+public class KeyPuzzle : Interactable, ITakeable
 {
     [SerializeField] private CanvasGroup puzzleScreen;
     [SerializeField] private CanvasManager canvasManager;
+    [SerializeField] private Inventory inventory;
 
     private int pinMask = 0;
+    private int correctPins = (1 << 4) ^ (1 << 6) ^ (1 << 7) ^ (1 << 10);
     [SerializeField] private GameObject pin1;
     [SerializeField] private GameObject pin2;
     [SerializeField] private GameObject pin3;
@@ -54,5 +56,14 @@ public class KeyPuzzle : Interactable
     {
         pinMask ^= 1 << pinNum;
         pins[pinNum - 1].SetActive(!pins[pinNum - 1].activeSelf);
+    }
+
+    public void OnTake()
+    {
+        if (pinMask == correctPins)
+        {
+            inventory.Take(this);
+            gameObject.SetActive(false);
+        }
     }
 }

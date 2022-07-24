@@ -16,16 +16,22 @@ public class EachLight : MonoBehaviour
         if (currentLighted)
         {
             GetComponent<Light>().intensity = 0.8f;
-            foreach (Transform child in transform)
+            foreach (Transform child in transform.parent)
             {
-                child.GetComponent<MeshRenderer>().material = onLightMaterial;
+                if (child != transform)
+                {
+                    child.GetComponent<MeshRenderer>().material = onLightMaterial;
+                } 
             }
         } else
         {
             GetComponent<Light>().intensity = 0f;
-            foreach (Transform child in transform)
+            foreach (Transform child in transform.parent)
             {
-                child.GetComponent<MeshRenderer>().material = offLightMaterial;
+                if (child != transform)
+                {
+                    child.GetComponent<MeshRenderer>().material = offLightMaterial;
+                }
             }
         }
     }

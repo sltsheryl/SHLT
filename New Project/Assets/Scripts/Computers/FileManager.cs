@@ -31,8 +31,7 @@ public class FileManager : MonoBehaviour
     }
 
     public void back()
-    {
-        
+    {  
         if (current > 0)
         {
             current -= 1;

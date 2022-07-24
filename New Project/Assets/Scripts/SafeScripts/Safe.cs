@@ -11,7 +11,7 @@ public class Safe : Interactable
 
     private Outline outline;
     private float rotationAmount = 0.5f;
-    private float delaySpeed = 0.05f;
+    // private float delaySpeed = 0.05f;
 
     private void Start()
     {

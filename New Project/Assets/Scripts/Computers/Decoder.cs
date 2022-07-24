@@ -8,7 +8,6 @@ public class Decoder : MonoBehaviour
 {
     [SerializeField] private TMP_InputField input;
     [SerializeField] private Slider keySlider;
-    [SerializeField] private Button decrypt;
     [SerializeField] private TextMeshProUGUI output;
     [SerializeField] private CanvasGroup puzzleScreen;
 
@@ -16,41 +15,46 @@ public class Decoder : MonoBehaviour
     private void Start()
     {
         key = (int) keySlider.value;
-        decrypt.GetComponent<Button>().onClick.AddListener(() => setOutput());
         
     }
 
 
-    private void setOutput()
+    public void setOutput()
     {
         output.text = Decrypt(input.text, (int)keySlider.value);
     }
 
     private string Decrypt(string plainText, int caesarKey)
     {
+        caesarKey = -caesarKey;
         string cipherText = "";
         for (int i = 0; i < plainText.Length; i++)
         {
-            if (plainText[i] == ' ' || plainText[i] == '.' || plainText[i] == ',')
+            char alphabet = plainText[i];
+            if (alphabet >= 'a' && alphabet <= 'z')
             {
-                cipherText += plainText[i];
+                alphabet = (char)(alphabet + caesarKey);
+                if (alphabet > 'z')
+                {
+                    alphabet = (char)(alphabet + 'a' - 'z' - 1);
+                }
+                cipherText = cipherText + alphabet;
+            }
+            else if (alphabet >= 'A' && alphabet <= 'Z')
+            {
+                alphabet = (char)(alphabet + caesarKey);
+                if (alphabet > 'Z')
+                {
+                    alphabet = (char)(alphabet + 'A' - 'Z' - 1);
+                }
+                cipherText += alphabet;
             }
             else
             {
-                int currentAscii = (int)plainText[i];
-                int newAscii = currentAscii - caesarKey;
-                int correctAscii = newAscii;
-                if (newAscii - 'a' < 0)
-                {
-                    int remainder = 97 % newAscii;
-                    correctAscii = 122 - remainder + 1;
-
-                }
-                cipherText += (char)correctAscii;
+                cipherText += alphabet;
             }
-            
         }
-        
+
         return cipherText;
     }
 }

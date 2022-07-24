@@ -8,8 +8,6 @@ public class ComputerLogin : MonoBehaviour
 {
     [SerializeField] private TMP_InputField username;
     [SerializeField] private TMP_InputField password;
-    [SerializeField] private Button login;
-    [SerializeField] private Button cancel;
     [SerializeField] private CanvasGroup puzzleScreen;
     [SerializeField] private GameObject loginPage;
     [SerializeField] private GameObject computerPage;
@@ -23,7 +21,7 @@ public class ComputerLogin : MonoBehaviour
 
     private void Start()
     {
-        fieldSequence = new FieldSequence();
+        fieldSequence = ScriptableObject.CreateInstance<FieldSequence>();
 
         firstInput.Select();
        
@@ -54,6 +52,7 @@ public class ComputerLogin : MonoBehaviour
 
     public void closeComputer()
     {
+        canvasManager.PopFromCanvasStack();
         puzzleScreen.gameObject.SetActive(false);
     }
 

@@ -12,7 +12,4 @@ public class FolderButtons : MonoBehaviour
         fileManager.addLetter(gameObject.name);
         gameObject.transform.parent.gameObject.SetActive(false);
     }
-
-    
-
 }

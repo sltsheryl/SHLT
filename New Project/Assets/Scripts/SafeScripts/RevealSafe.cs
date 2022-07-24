@@ -24,7 +24,7 @@ public class RevealSafe : Interactable
     {
         Debug.Log("Wall clicked!");
         safe.gameObject.SetActive(true);
-        this.gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     public override void OnLoseFocus()

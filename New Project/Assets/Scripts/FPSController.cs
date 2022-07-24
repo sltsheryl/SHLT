@@ -15,13 +15,14 @@ public class FPSController : MonoBehaviour
     [SerializeField] private bool canJump = true;
     [SerializeField] private bool canCrouch = true;
     [SerializeField] private bool canInteract = true;
+    [SerializeField] private bool canTake = true;
 
     [Header("Controls")]
     [SerializeField] private KeyCode sprintKey = KeyCode.LeftShift;
     [SerializeField] private KeyCode jumpKey = KeyCode.Space;
     [SerializeField] private KeyCode crouchKey = KeyCode.LeftControl;
     [SerializeField] private KeyCode interactKey = KeyCode.Mouse0;
-
+    [SerializeField] private KeyCode takeKey = KeyCode.E;
 
     [Header("Movement Parameters")]
     [SerializeField] private float walkSpeed = 3.0f;
@@ -51,7 +52,7 @@ public class FPSController : MonoBehaviour
     [SerializeField] private Vector3 interactionRayPoint = default;
     [SerializeField] private float interactionDistance = default;
     [SerializeField] private LayerMask interactionLayer = default;
-    private Interactable currentInteractable;
+    [SerializeField] private Interactable currentInteractable;
 
     private Camera playerCamera;
     private CharacterController characterController;
@@ -94,6 +95,10 @@ public class FPSController : MonoBehaviour
             {
                 HandleInteractionCheck();
                 HandleInteractionInput();
+                if (canTake)
+                {
+                    HandleTakeInput();
+                }
             }
             ApplyFinalMovements();
         }
@@ -163,7 +168,12 @@ public class FPSController : MonoBehaviour
             if (hit.collider.gameObject.layer == 9
                 && (currentInteractable == null 
                     || hit.collider.gameObject.GetInstanceID() != currentInteractable.GetInstanceID()))
-            {
+            {                
+                if (currentInteractable && hit.collider.gameObject.GetInstanceID() != currentInteractable.GetInstanceID())
+                {
+                    currentInteractable.OnLoseFocus();
+                    currentInteractable = null;
+                }
                 hit.collider.TryGetComponent(out currentInteractable);
 
                 if (currentInteractable)
@@ -190,6 +200,21 @@ public class FPSController : MonoBehaviour
                                interactionLayer))
         {
             currentInteractable.OnInteract();
+        }
+    }
+
+    private void HandleTakeInput()
+    {
+        if (Input.GetKeyDown(takeKey) 
+            && currentInteractable != null 
+            && Physics.Raycast(playerCamera.ViewportPointToRay(interactionRayPoint),
+                               out RaycastHit hit,
+                               interactionDistance,
+                               interactionLayer)
+            && currentInteractable is ITakeable)
+        {
+            ITakeable takeable = (ITakeable) currentInteractable;
+            takeable.OnTake();
         }
     }
 

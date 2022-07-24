@@ -9,15 +9,15 @@ public class ComputerBar : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI date;
     [SerializeField] private TextMeshProUGUI user;
+    [SerializeField] private string username;
     
     private void Start()
     {
-        user.text = "admin";
+        user.text = username;
     }
 
     private void Update()
     {
-        System.DateTime theTime = System.DateTime.Now;
-        date.text = theTime.ToString();
+        date.text = DateTime.Now.ToString();
     }
 }
