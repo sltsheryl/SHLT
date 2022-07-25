@@ -305,7 +305,7 @@ MonoBehaviour:
   computerPage: {fileID: 3703024504275052832}
   nextItem: {fileID: 3703024503060883259}
   message: {fileID: 3703024504629590341}
-  correctUsername: lenbeong
+  correctUsername: 
   correctPassword: attitude
   firstInput: {fileID: 3703024503902023648}
   canvasManager: {fileID: 0}
@@ -16951,7 +16951,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: user
+  m_text: lenbeong
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c68bd94dcfe4843bd9d47eee9347294d, type: 2}
   m_sharedMaterial: {fileID: 8472157963157175270, guid: c68bd94dcfe4843bd9d47eee9347294d, type: 2}

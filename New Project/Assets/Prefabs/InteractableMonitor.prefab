@@ -3465,8 +3465,8 @@ MonoBehaviour:
   computerPage: {fileID: 2430402050530975914}
   nextItem: {fileID: 2430402051158987608}
   message: {fileID: 2430402050219466122}
-  correctUsername: admin
-  correctPassword: admin
+  correctUsername: labuser
+  correctPassword: goodluck
   firstInput: {fileID: 2430402049519460948}
   canvasManager: {fileID: 0}
 --- !u!1 &2430402050621612896
@@ -3709,7 +3709,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: user
+  m_text: labuser
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c68bd94dcfe4843bd9d47eee9347294d, type: 2}
   m_sharedMaterial: {fileID: 8472157963157175270, guid: c68bd94dcfe4843bd9d47eee9347294d, type: 2}
@@ -4523,7 +4523,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   date: {fileID: 2430402050306581382}
   user: {fileID: 2430402050623420025}
-  username: admin
+  username: labuser
 --- !u!1 &2430402050730129254
 GameObject:
   m_ObjectHideFlags: 0
