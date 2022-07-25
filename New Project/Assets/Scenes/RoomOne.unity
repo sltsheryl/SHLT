@@ -5174,14 +5174,38 @@ PrefabInstance:
       propertyPath: correctUsername
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3703024503051968837, guid: eb63cbdffb5764712a69d6cd9d5796b0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703024503060883259, guid: eb63cbdffb5764712a69d6cd9d5796b0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703024504275052832, guid: eb63cbdffb5764712a69d6cd9d5796b0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703024504393113252, guid: eb63cbdffb5764712a69d6cd9d5796b0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3703024504417630084, guid: eb63cbdffb5764712a69d6cd9d5796b0, type: 3}
       propertyPath: m_RootOrder
       value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703024504442737663, guid: eb63cbdffb5764712a69d6cd9d5796b0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3703024504824503351, guid: eb63cbdffb5764712a69d6cd9d5796b0, type: 3}
       propertyPath: canvasManager
       value: 
       objectReference: {fileID: 1527762747}
+    - target: {fileID: 3703024504824503497, guid: eb63cbdffb5764712a69d6cd9d5796b0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5327398623533743999, guid: eb63cbdffb5764712a69d6cd9d5796b0, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -12882,7 +12906,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-22286
+  m_Name: pb_Mesh-7520
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -20012,7 +20036,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2430402050619767573, guid: 0086f1761b45c4a229aabd1c0ca200e0, type: 3}
       propertyPath: correctUsername
-      value: lastuser
+      value: labuser
       objectReference: {fileID: 0}
     - target: {fileID: 2430402050686984452, guid: 0086f1761b45c4a229aabd1c0ca200e0, type: 3}
       propertyPath: m_Name
@@ -27227,7 +27251,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-22520
+  m_Name: pb_Mesh-7754
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

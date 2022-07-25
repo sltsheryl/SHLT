@@ -11,7 +11,7 @@
     <key>CFBundleIconFile</key>
     <string>PlayerIcon.icns</string>
     <key>CFBundleIdentifier</key>
-    <string>com.DefaultCompany.NewProject</string>
+    <string>com.DefaultCompany.New-Project</string>
     <key>CFBundleInfoDictionaryVersion</key>
     <string>6.0</string>
     <key>CFBundleName</key>
