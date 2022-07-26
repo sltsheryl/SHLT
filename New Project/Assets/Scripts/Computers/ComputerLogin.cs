@@ -42,11 +42,12 @@ public class ComputerLogin : MonoBehaviour
         {
             loginPage.gameObject.SetActive(false);
             computerPage.gameObject.SetActive(true);
-            
-            Invoke("showMessage", 2f);
+            Invoke("showMessage", 3f);
+
         } else
         {
             message.text = "Incorrect";
+            Invoke("eraseMessage", 3f);
         }
     }
 
@@ -59,5 +60,10 @@ public class ComputerLogin : MonoBehaviour
     private void showMessage()
     {
         nextItem.gameObject.SetActive(true);
+    }
+
+    private void eraseMessage()
+    {
+        message.text = "";
     }
 }

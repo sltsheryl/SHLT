@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
-
+using UnityEngine.UI;
 using UnityEngine;
 
 public class KeyPuzzle : Interactable, ITakeable
@@ -9,6 +9,7 @@ public class KeyPuzzle : Interactable, ITakeable
     [SerializeField] private CanvasGroup puzzleScreen;
     [SerializeField] private CanvasManager canvasManager;
     [SerializeField] private Inventory inventory;
+    [SerializeField] private Text tryAgain;
 
     private int pinMask = 0;
     private int correctPins = (1 << 4) ^ (1 << 6) ^ (1 << 7) ^ (1 << 10);
@@ -62,13 +63,16 @@ public class KeyPuzzle : Interactable, ITakeable
     {
         if (pinMask == correctPins)
         {
-            Debug.Log("Key taken!");
             inventory.Take(this);
             gameObject.SetActive(false);
+            FPSController.EnableControls();
         }
         else
         {
-            Debug.Log("Wrong pin");
+            tryAgain.gameObject.SetActive(true);
+           
         }
     }
+
+   
 }

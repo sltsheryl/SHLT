@@ -705,10 +705,10 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'WASD to move
 
-    Left Mouse Button to interact
+    Left Mouse Button to interact (Position object to the
+    center till white outline appears)
 
-    E to interact with
-    inventory'
+    E to interact with inventory'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c68bd94dcfe4843bd9d47eee9347294d, type: 2}
   m_sharedMaterial: {fileID: 8472157963157175270, guid: c68bd94dcfe4843bd9d47eee9347294d, type: 2}
