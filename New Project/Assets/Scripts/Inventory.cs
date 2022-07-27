@@ -4,16 +4,25 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    private ITakeable takeable;
+    [SerializeField] private FPS_UI fpsUi;
+    private Takeable takeable;
 
-    public void Take(ITakeable takeable)
+    public void Take(Takeable takeable)
     {
         this.takeable = takeable;
-        Debug.Log(this.takeable);
+        fpsUi.SetImage(takeable.GetSprite());
     }
 
-    public ITakeable Use()
+    public Takeable Check()
     {
         return takeable;
+    }
+
+    public Takeable Use()
+    {
+        Takeable temp = takeable;
+        takeable = null;
+        fpsUi.SetImage(null);
+        return temp;
     }
 }

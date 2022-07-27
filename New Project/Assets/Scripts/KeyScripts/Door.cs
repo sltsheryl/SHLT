@@ -5,6 +5,8 @@ using UnityEngine;
 public class Door : Interactable
 {
     [SerializeField] private Inventory inventory;
+    [SerializeField] private FPS_UI fpsUi;
+    
     private Outline outline;
     [SerializeField] private float fadeInDelay;
     [SerializeField] private CanvasGroup winScreen;
@@ -23,12 +25,14 @@ public class Door : Interactable
 
     public override void OnInteract()
     {
-        Debug.Log("Interact with Door");
-        if (inventory.Use() is KeyPuzzle)
+        if (inventory.Check() is KeyPuzzle)
         {
+            inventory.Use();
             canvasManager.AddToCanvasStack(winScreen);
             StartCoroutine(FadeWinScreen());
-            Debug.Log("You win!");
+        } else
+        {
+            fpsUi.SetMessageText("You need a key to do that...");
         }
     }
 

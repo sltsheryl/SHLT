@@ -4,12 +4,12 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class KeyPuzzle : Interactable, ITakeable
+public class KeyPuzzle : Takeable
 {
     [SerializeField] private CanvasGroup puzzleScreen;
     [SerializeField] private CanvasManager canvasManager;
     [SerializeField] private Inventory inventory;
-    [SerializeField] private Text tryAgain;
+    [SerializeField] private FPS_UI fpsUi;
 
     private int pinMask = 0;
     private int correctPins = (1 << 4) ^ (1 << 6) ^ (1 << 7) ^ (1 << 10);
@@ -59,18 +59,16 @@ public class KeyPuzzle : Interactable, ITakeable
         pins[pinNum - 1].SetActive(!pins[pinNum - 1].activeSelf);
     }
 
-    public void OnTake()
+    public override void OnTake()
     {
         if (pinMask == correctPins)
         {
             inventory.Take(this);
             gameObject.SetActive(false);
-            FPSController.EnableControls();
-        }
+        } 
         else
         {
-            tryAgain.gameObject.SetActive(true);
-           
+            fpsUi.SetMessageText("You can only pick this up when the pins are in correct configuration");
         }
     }
 

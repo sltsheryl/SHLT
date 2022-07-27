@@ -53,6 +53,7 @@ public class FPSController : MonoBehaviour
     [SerializeField] private float interactionDistance = default;
     [SerializeField] private LayerMask interactionLayer = default;
     [SerializeField] private Interactable currentInteractable;
+    [SerializeField] private FPS_UI fpsUi;
 
     private Camera playerCamera;
     private CharacterController characterController;
@@ -210,11 +211,17 @@ public class FPSController : MonoBehaviour
             && Physics.Raycast(playerCamera.ViewportPointToRay(interactionRayPoint),
                                out RaycastHit hit,
                                interactionDistance,
-                               interactionLayer)
-            && currentInteractable is ITakeable)
+                               interactionLayer))
         {
-            ITakeable takeable = (ITakeable) currentInteractable;
-            takeable.OnTake();
+            if (currentInteractable is Takeable)
+            {
+                Takeable takeable = (Takeable) currentInteractable;
+                takeable.OnTake();
+            }
+            else
+            {
+                fpsUi.SetMessageText("This object is not takeable.");
+            }
         }
     }
 
