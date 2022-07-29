@@ -83,7 +83,7 @@ function parseAuthorizationHeader(authorizationHeader) {
 }
 
 function parseClientFirst(dataString) {
-	const clientFirstPattern = /n,,n=([a-zA-Z0-9]+),r=([a-zA-Z0-9]+)/g;
+	const clientFirstPattern = /n,,n=([a-zA-Z0-9_]+),r=([a-zA-Z0-9]+)/g;
 
 	const clientFirstParams = clientFirstPattern.exec(dataString);
 	if (clientFirstParams != null) {
