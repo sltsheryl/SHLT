@@ -12,6 +12,9 @@ public class Door : Interactable
     [SerializeField] private CanvasGroup winScreen;
     [SerializeField] private CanvasManager canvasManager;
 
+    [SerializeField] private AudioSource soundAudioSource = default;
+    [SerializeField] private AudioClip winAudio = default;
+
     private void Start()
     {
         outline = GetComponent<Outline>();
@@ -29,6 +32,7 @@ public class Door : Interactable
         {
             inventory.Use();
             canvasManager.AddToCanvasStack(winScreen);
+            soundAudioSource.PlayOneShot(winAudio);
             StartCoroutine(FadeWinScreen());
         } else
         {
